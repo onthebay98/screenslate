@@ -8,20 +8,25 @@ from letterboxdpy.user import User
 
 
 def get_rated_films(username, min_rating=3.5, max_films=150):
-    """Fetch a user's rated films from Letterboxd."""
+    """Fetch a user's rated films from Letterboxd diary, sorted by recency."""
     user = User(username)
-    result = user.get_films()
-    films = []
-    for slug, film in result.get("movies", {}).items():
-        rating = film.get("rating")
-        if rating is not None and rating >= min_rating:
-            films.append({
-                "name": film["name"],
-                "year": film.get("year"),
+    result = user.get_diary()
+    # Deduplicate by slug, keeping most recent entry
+    seen = {}
+    for log_id, entry in result.get("entries", {}).items():
+        rating = entry.get("actions", {}).get("rating")
+        slug = entry.get("slug", "")
+        if rating is not None and rating >= min_rating and slug not in seen:
+            date = entry.get("date", {})
+            seen[slug] = {
+                "name": entry["name"],
+                "year": entry.get("release"),
                 "rating": rating,
                 "slug": slug,
-            })
-    films.sort(key=lambda f: f["rating"], reverse=True)
+                "date": f"{date.get('year', '')}-{date.get('month', ''):02d}-{date.get('day', ''):02d}",
+            }
+    # Sort by date descending (most recent first)
+    films = sorted(seen.values(), key=lambda f: f["date"], reverse=True)
     return films[:max_films]
 
 
@@ -30,11 +35,13 @@ def build_prompt(films, username):
     film_lines = []
     for f in films:
         year_str = f" ({f['year']})" if f.get("year") else ""
-        film_lines.append(f"- {f['name']}{year_str} — rated {f['rating']}/5")
+        film_lines.append(f"- {f['name']}{year_str} — rated {f['rating']}/5 — watched {f['date']}")
 
     film_list = "\n".join(film_lines)
 
-    return f"""You are a well-read literary expert who also loves cinema. A Letterboxd user (@{username}) has shared their highly-rated films. Based on their taste, recommend 10 books they would love.
+    return f"""You are a well-read literary expert who also loves cinema. A Letterboxd user (@{username}) has shared their highly-rated films, ordered from most recently watched to oldest. Based on their taste, recommend 10 books they would love.
+
+IMPORTANT: Give higher priority to more recently watched films, as they better reflect the user's current interests. The list is ordered by date (most recent first).
 
 Here are their top-rated films (rated 3.5/5 or higher):
 
