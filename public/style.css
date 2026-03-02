@@ -276,6 +276,30 @@ button[type="submit"]:disabled {
   display: none;
 }
 
+/* Footer */
+.footer {
+  text-align: center;
+  color: #678;
+  font-size: 0.85rem;
+  padding: 40px 20px 24px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  margin-left: 6px;
+}
+
+.footer-links a {
+  color: #678;
+  text-decoration: none;
+  margin: 0 4px;
+}
+
+.footer-links a:hover {
+  color: #9ab;
+}
+
 /* Mobile */
 @media (max-width: 480px) {
   .container {
