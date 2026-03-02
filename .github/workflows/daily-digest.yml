@@ -25,8 +25,15 @@ jobs:
         env:
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
-          RATING_THRESHOLD: "3.8"
+          RECIPIENT_EMAILS: ${{ secrets.RECIPIENT_EMAILS }}
           DAYS_AHEAD: "7"
           CITY_ID: "10969"
         run: python scraper.py
+
+      - name: Commit updated cache
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ratings_cache.json
+          git diff --cached --quiet || git commit -m "Update ratings cache"
+          git push

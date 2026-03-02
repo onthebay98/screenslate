@@ -11,6 +11,7 @@ Runs twice weekly via GitHub Actions:
   - Thursday night: covers Fri–Thu
 """
 
+import json
 import os
 import re
 import smtplib
@@ -20,6 +21,7 @@ from datetime import datetime, timedelta
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from html import unescape
+from pathlib import Path
 
 import requests
 from bs4 import BeautifulSoup
@@ -30,11 +32,14 @@ from bs4 import BeautifulSoup
 
 GMAIL_ADDRESS = os.environ.get("GMAIL_ADDRESS")
 GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD")
-RECIPIENT_EMAIL = os.environ.get("RECIPIENT_EMAIL")
+RECIPIENT_EMAILS = [
+    e.strip() for e in os.environ.get("RECIPIENT_EMAILS", "").split(",") if e.strip()
+]
 DAYS_AHEAD = int(os.environ.get("DAYS_AHEAD", "7"))
 CITY_ID = os.environ.get("CITY_ID", "10969")  # NYC
 
 SCREENSLATE_BASE = "https://www.screenslate.com"
+CACHE_FILE = Path(__file__).parent / "ratings_cache.json"
 
 # ---------------------------------------------------------------------------
 # Screen Slate helpers
@@ -176,13 +181,25 @@ def fetch_screenings(days_ahead: int = DAYS_AHEAD) -> list[dict]:
 # Letterboxd helpers
 # ---------------------------------------------------------------------------
 
+def get_rating_fast(slug: str) -> float | None:
+    """
+    Fetch only the Letterboxd profile page for a film and extract its rating.
+    Much faster than Movie() which scrapes 6 pages per film.
+    """
+    from letterboxdpy.pages.movie_profile import MovieProfile
+    try:
+        profile = MovieProfile(slug)
+        return profile.get_rating()
+    except Exception:
+        return None
+
+
 def lookup_letterboxd(title: str, year: int | None) -> dict | None:
     """
     Search Letterboxd for a film by title (and year if available).
     Returns {"slug", "rating", "url"} or None.
     """
     from letterboxdpy.search import Search
-    from letterboxdpy.movie import Movie
 
     query = f"{title} {year}" if year else title
     try:
@@ -211,34 +228,53 @@ def lookup_letterboxd(title: str, year: int | None) -> dict | None:
             return None
 
         slug = best["slug"]
-        movie = Movie(slug)
-        return {"slug": slug, "rating": movie.rating, "url": movie.url}
+        rating = get_rating_fast(slug)
+        url = f"https://letterboxd.com/film/{slug}/"
+        return {"slug": slug, "rating": rating, "url": url}
 
     except Exception as e:
         print(f"  Letterboxd lookup error for '{title}': {e}")
         return None
 
 
+def load_cache() -> dict:
+    """Load the persistent ratings cache from disk."""
+    if CACHE_FILE.exists():
+        with open(CACHE_FILE) as f:
+            return json.load(f)
+    return {}
+
+
+def save_cache(cache: dict) -> None:
+    """Save the ratings cache to disk."""
+    with open(CACHE_FILE, "w") as f:
+        json.dump(cache, f, indent=2, sort_keys=True)
+
+
 def enrich_with_ratings(films: list[dict]) -> tuple[list[dict], list[dict]]:
     """
     Look up Letterboxd ratings for each film.
+    Uses a persistent JSON cache so each film is only scraped once.
     Returns (rated_films, unrated_films).
     """
-    seen_titles = {}
+    cache = load_cache()
     rated = []
     unrated = []
+    cache_hits = 0
 
     for film in films:
         title = film["title"]
         key = title.lower()
 
-        if key in seen_titles:
-            lb = seen_titles[key]
+        if key in cache:
+            lb = cache[key]
+            cache_hits += 1
         else:
             print(f"  Looking up: {title} ({film.get('year', '?')})")
             lb = lookup_letterboxd(title, film.get("year"))
-            seen_titles[key] = lb
-            time.sleep(1.5)
+            # Store result in cache (None becomes empty dict for JSON)
+            cache[key] = lb if lb else {}
+            time.sleep(0.5)
 
         if lb and lb.get("rating"):
             film["lb_rating"] = lb["rating"]
@@ -246,9 +282,15 @@ def enrich_with_ratings(films: list[dict]) -> tuple[list[dict], list[dict]]:
             film["lb_slug"] = lb["slug"]
             rated.append(film)
         else:
-            print(f"    No rating found for {title}")
+            if key in cache and not cache[key]:
+                pass  # already logged on first lookup
+            else:
+                print(f"    No rating found for {title}")
             unrated.append(film)
 
+    save_cache(cache)
+    new_lookups = len(films) - cache_hits
+    print(f"  Cache: {cache_hits} hits, {new_lookups} new lookups, {len(cache)} total entries")
     return rated, unrated
 
 
@@ -386,8 +428,8 @@ def build_email_html(rated: list[dict], unrated: list[dict], date_range: str) ->
 
 
 def send_email(html_body: str, date_range: str) -> None:
-    """Send the digest email via Gmail SMTP."""
-    if not all([GMAIL_ADDRESS, GMAIL_APP_PASSWORD, RECIPIENT_EMAIL]):
+    """Send the digest email via Gmail SMTP to all recipients."""
+    if not all([GMAIL_ADDRESS, GMAIL_APP_PASSWORD, RECIPIENT_EMAILS]):
         print("Email credentials not configured. Printing HTML to stdout instead.")
         print(html_body)
         return
@@ -395,15 +437,15 @@ def send_email(html_body: str, date_range: str) -> None:
     msg = MIMEMultipart("alternative")
     msg["Subject"] = f"NYC Film Digest — {date_range}"
     msg["From"] = GMAIL_ADDRESS
-    msg["To"] = RECIPIENT_EMAIL
+    msg["To"] = ", ".join(RECIPIENT_EMAILS)
     msg.attach(MIMEText(html_body, "html"))
 
     with smtplib.SMTP("smtp.gmail.com", 587) as server:
         server.starttls()
         server.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
-        server.sendmail(GMAIL_ADDRESS, RECIPIENT_EMAIL, msg.as_string())
+        server.sendmail(GMAIL_ADDRESS, RECIPIENT_EMAILS, msg.as_string())
 
-    print(f"Email sent to {RECIPIENT_EMAIL}")
+    print(f"Email sent to {', '.join(RECIPIENT_EMAILS)}")
 
 
 # ---------------------------------------------------------------------------
