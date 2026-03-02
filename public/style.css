@@ -197,6 +197,54 @@ button[type="submit"]:disabled {
   font-size: 0.8rem;
 }
 
+/* Categories */
+.category-section {
+  margin-bottom: 40px;
+}
+
+.category-heading {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #9ab;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #2c3440;
+}
+
+/* Gold top pick */
+.book-card.top-pick {
+  border-color: #d4a843;
+  background: #1e2530;
+}
+
+.book-card.top-pick:hover {
+  border-color: #e8bf5a;
+}
+
+.book-card.top-pick .book-title a {
+  color: #e8bf5a;
+}
+
+.book-card.top-pick .book-title a:hover {
+  color: #fff;
+}
+
+.top-pick-badge {
+  display: inline-block;
+  background: #d4a843;
+  color: #14181c;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 10px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 /* Reset / Error */
 .reset-btn {
   display: block;

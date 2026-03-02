@@ -46,21 +46,35 @@ function renderBooks(data) {
   summary.textContent = `Based on ${data.film_count} highly-rated films from @${data.username}`;
   booksContainer.innerHTML = '';
 
-  for (const book of data.recommendations) {
-    const card = document.createElement('div');
-    card.className = 'book-card';
+  for (const category of data.categories) {
+    const section = document.createElement('div');
+    section.className = 'category-section';
 
-    const tags = book.related_films
-      .map(f => `<span class="film-tag">${f}</span>`)
-      .join('');
+    const heading = document.createElement('h2');
+    heading.className = 'category-heading';
+    heading.textContent = category.name;
+    section.appendChild(heading);
 
-    card.innerHTML = `
-      <div class="book-title"><a href="${book.link}" target="_blank" rel="noopener">${book.title}</a></div>
-      <div class="book-author">by ${book.author}</div>
-      <div class="book-description">${book.description}</div>
-      <div class="related-films">${tags}</div>
-    `;
-    booksContainer.appendChild(card);
+    for (const book of category.books) {
+      const card = document.createElement('div');
+      card.className = 'book-card' + (book.top_pick ? ' top-pick' : '');
+
+      const tags = book.related_films
+        .map(f => `<span class="film-tag">${f}</span>`)
+        .join('');
+
+      const badge = book.top_pick ? '<span class="top-pick-badge">Top Pick</span>' : '';
+
+      card.innerHTML = `
+        <div class="book-title"><a href="${book.link}" target="_blank" rel="noopener">${book.title}</a>${badge}</div>
+        <div class="book-author">by ${book.author}</div>
+        <div class="book-description">${book.description}</div>
+        <div class="related-films">${tags}</div>
+      `;
+      section.appendChild(card);
+    }
+
+    booksContainer.appendChild(section);
   }
 }
 

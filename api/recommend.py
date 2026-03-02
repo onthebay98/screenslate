@@ -65,7 +65,7 @@ def build_prompt(films, username):
 
     film_list = "\n".join(film_lines)
 
-    return f"""You are a well-read literary expert who also loves cinema. A Letterboxd user (@{username}) has shared their highly-rated films. Based on their taste, recommend 10 books they would love.
+    return f"""You are a well-read literary expert who also loves cinema. A Letterboxd user (@{username}) has shared their highly-rated films. Based on their taste, recommend books they would love, organized into thematic categories.
 
 The films are ordered by priority. Films rated higher should influence recommendations more than lower-rated ones (5/5 matters most, then 4.5, then 4, etc.). Films marked [RECENT] were watched in the last 3 months and reflect the user's current interests — prioritize these over older films at the same rating level.
 
@@ -73,22 +73,33 @@ Here are their films:
 
 {film_list}
 
-For each book recommendation, provide:
-1. **title**: The book title
-2. **author**: The author's name
-3. **description**: 2-3 sentences explaining why this reader would love this book, connecting it to specific films from their list
-4. **related_films**: A list of 2-4 film titles from their list that connect to this book
-5. **link**: A Goodreads search URL in the format "https://www.goodreads.com/search?q=[title]+[author]" (URL-encoded)
+First, identify 4-6 thematic categories that emerge from this user's film taste. Categories should be insightful and specific — not generic labels like "Drama" or "Action", but something that captures a real pattern (e.g. "Paranoid Americana", "Melancholy in Transit", "The Absurd Machine"). Be creative and perceptive.
+
+For each category, recommend 2-4 books. Mark exactly one book per category as "top_pick": true — this is the single highest-confidence recommendation in that category. The top pick should be listed first.
+
+For each book, provide:
+- **title**: The book title
+- **author**: The author's name
+- **description**: 2-3 sentences explaining why this reader would love this book, connecting it to specific films from their list
+- **related_films**: A list of 2-4 film titles from their list that connect to this book
+- **link**: A Goodreads search URL in the format "https://www.goodreads.com/search?q=[title]+[author]" (URL-encoded)
+- **top_pick**: true if this is the #1 recommendation in its category, false otherwise
 
 Respond with ONLY valid JSON in this exact format, no other text:
 {{
-  "recommendations": [
+  "categories": [
     {{
-      "title": "Book Title",
-      "author": "Author Name",
-      "description": "Why they'd love it...",
-      "related_films": ["Film 1", "Film 2"],
-      "link": "https://www.goodreads.com/search?q=Book+Title+Author+Name"
+      "name": "Category Name",
+      "books": [
+        {{
+          "title": "Book Title",
+          "author": "Author Name",
+          "description": "Why they'd love it...",
+          "related_films": ["Film 1", "Film 2"],
+          "link": "https://www.goodreads.com/search?q=Book+Title+Author+Name",
+          "top_pick": true
+        }}
+      ]
     }}
   ]
 }}"""
