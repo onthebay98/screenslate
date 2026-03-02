@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Film to Books</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Film &rarr; Books</h1>
+      <p class="subtitle">Get book recommendations based on your Letterboxd taste</p>
+    </header>
+
+    <div id="input-section">
+      <form id="form">
+        <div class="input-group">
+          <span class="at-sign">@</span>
+          <input
+            type="text"
+            id="username"
+            placeholder="letterboxd username"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+            required
+          >
+        </div>
+        <button type="submit" id="submit-btn">Get Recommendations</button>
+      </form>
+    </div>
+
+    <div id="loading-section" class="hidden">
+      <div class="spinner"></div>
+      <p id="loading-message">Fetching your films...</p>
+    </div>
+
+    <div id="results-section" class="hidden">
+      <p id="summary" class="summary"></p>
+      <div id="books"></div>
+      <button id="reset-btn" class="reset-btn">Try another username</button>
+    </div>
+
+    <div id="error-section" class="hidden">
+      <p id="error-message" class="error-message"></p>
+      <button id="error-reset-btn" class="reset-btn">Try again</button>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
