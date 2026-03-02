@@ -1,0 +1,32 @@
+name: NYC Film Digest
+
+on:
+  schedule:
+    # Sunday 11pm ET (Mon 4am UTC) — covers Mon–Sun
+    - cron: "0 4 * * 1"
+    # Thursday 11pm ET (Fri 4am UTC) — covers Fri–Thu
+    - cron: "0 4 * * 5"
+  workflow_dispatch:
+
+jobs:
+  send-digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scraper
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+          RATING_THRESHOLD: "3.8"
+          DAYS_AHEAD: "7"
+          CITY_ID: "10969"
+        run: python scraper.py
