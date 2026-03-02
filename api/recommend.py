@@ -78,7 +78,7 @@ For each book recommendation, provide:
 2. **author**: The author's name
 3. **description**: 2-3 sentences explaining why this reader would love this book, connecting it to specific films from their list
 4. **related_films**: A list of 2-4 film titles from their list that connect to this book
-5. **link**: A Google search URL for "buy [title] by [author]" (URL-encoded)
+5. **link**: A Goodreads search URL in the format "https://www.goodreads.com/search?q=[title]+[author]" (URL-encoded)
 
 Respond with ONLY valid JSON in this exact format, no other text:
 {{
@@ -88,7 +88,7 @@ Respond with ONLY valid JSON in this exact format, no other text:
       "author": "Author Name",
       "description": "Why they'd love it...",
       "related_films": ["Film 1", "Film 2"],
-      "link": "https://www.google.com/search?q=buy+Book+Title+by+Author+Name"
+      "link": "https://www.goodreads.com/search?q=Book+Title+Author+Name"
     }}
   ]
 }}"""
