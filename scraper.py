@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Screen Slate → Letterboxd NYC Film Digest
+Screen Slate → Letterboxd Bay's NYC Film Digest
 
 Scrapes Screen Slate for upcoming NYC film screenings, cross-references
 each film with its Letterboxd rating, and emails a digest sorted by day
@@ -425,7 +425,7 @@ def build_email_html(rated: list[dict], unrated: list[dict], date_range: str) ->
     return f"""
     <html>
     <body style="font-family:Helvetica,Arial,sans-serif;max-width:600px;margin:0 auto;background:#1a1a1a;color:#ddd;padding:20px;">
-      <h2 style="color:#00e054;margin-bottom:4px;">NYC Film Digest</h2>
+      <h2 style="color:#00e054;margin-bottom:4px;">Bay's NYC Film Digest</h2>
       <p style="color:#999;font-size:13px;margin-top:0;">{date_range} &middot; {total} films</p>
       <table style="width:100%;border-collapse:collapse;">
         {''.join(html_sections)}
@@ -453,7 +453,7 @@ def send_email(html_body: str, date_range: str) -> None:
         json={
             "from": FROM_EMAIL,
             "to": RECIPIENT_EMAILS,
-            "subject": f"NYC Film Digest — {date_range}",
+            "subject": f"Bay's NYC Film Digest — {date_range}",
             "html": html_body,
         },
     )
