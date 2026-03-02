@@ -1,33 +1,57 @@
 import json
 import os
 import re
+from datetime import datetime, timedelta
 from http.server import BaseHTTPRequestHandler
 
 import anthropic
 from letterboxdpy.user import User
 
+RECENT_CUTOFF_DAYS = 90
 
-def get_rated_films(username, min_rating=3.5, max_films=150):
-    """Fetch a user's rated films from Letterboxd diary, sorted by recency."""
+
+def get_rated_films(username, max_films=150):
+    """Fetch rated films from diary (with dates) + all films (no dates), with priority sorting."""
     user = User(username)
-    result = user.get_diary()
-    # Deduplicate by slug, keeping most recent entry
-    seen = {}
-    for log_id, entry in result.get("entries", {}).items():
+    cutoff = (datetime.now() - timedelta(days=RECENT_CUTOFF_DAYS)).strftime("%Y-%m-%d")
+
+    # 1. Get diary entries (have dates)
+    diary = user.get_diary()
+    diary_slugs = {}
+    for log_id, entry in diary.get("entries", {}).items():
         rating = entry.get("actions", {}).get("rating")
         slug = entry.get("slug", "")
-        if rating is not None and rating >= min_rating and slug not in seen:
+        if rating is not None and rating >= 3.5 and slug not in diary_slugs:
             date = entry.get("date", {})
-            seen[slug] = {
+            date_str = f"{date.get('year', '')}-{date.get('month', 0):02d}-{date.get('day', 0):02d}"
+            diary_slugs[slug] = {
                 "name": entry["name"],
                 "year": entry.get("release"),
                 "rating": rating,
                 "slug": slug,
-                "date": f"{date.get('year', '')}-{date.get('month', ''):02d}-{date.get('day', ''):02d}",
+                "date": date_str,
+                "recent": date_str >= cutoff,
             }
-    # Sort by date descending (most recent first)
-    films = sorted(seen.values(), key=lambda f: f["date"], reverse=True)
-    return films[:max_films]
+
+    # 2. Get all films (no dates) — only include 4.5+ that aren't already in diary
+    all_films = user.get_films()
+    non_diary = {}
+    for slug, film in all_films.get("movies", {}).items():
+        rating = film.get("rating")
+        if rating is not None and rating >= 4.5 and slug not in diary_slugs:
+            non_diary[slug] = {
+                "name": film["name"],
+                "year": film.get("year"),
+                "rating": rating,
+                "slug": slug,
+                "date": None,
+                "recent": False,
+            }
+
+    # 3. Priority sort: recent 5s > all 5s > recent 4.5s > all 4.5s > recent 4s > all 4s > ...
+    combined = list(diary_slugs.values()) + list(non_diary.values())
+    combined.sort(key=lambda f: (f["rating"], f["recent"]), reverse=True)
+    return combined[:max_films]
 
 
 def build_prompt(films, username):
@@ -35,15 +59,17 @@ def build_prompt(films, username):
     film_lines = []
     for f in films:
         year_str = f" ({f['year']})" if f.get("year") else ""
-        film_lines.append(f"- {f['name']}{year_str} — rated {f['rating']}/5 — watched {f['date']}")
+        date_str = f" — watched {f['date']}" if f["date"] else ""
+        recent_tag = " [RECENT]" if f["recent"] else ""
+        film_lines.append(f"- {f['name']}{year_str} — rated {f['rating']}/5{date_str}{recent_tag}")
 
     film_list = "\n".join(film_lines)
 
-    return f"""You are a well-read literary expert who also loves cinema. A Letterboxd user (@{username}) has shared their highly-rated films, ordered from most recently watched to oldest. Based on their taste, recommend 10 books they would love.
+    return f"""You are a well-read literary expert who also loves cinema. A Letterboxd user (@{username}) has shared their highly-rated films. Based on their taste, recommend 10 books they would love.
 
-IMPORTANT: Give higher priority to more recently watched films, as they better reflect the user's current interests. The list is ordered by date (most recent first).
+The films are ordered by priority. Films rated higher should influence recommendations more than lower-rated ones (5/5 matters most, then 4.5, then 4, etc.). Films marked [RECENT] were watched in the last 3 months and reflect the user's current interests — prioritize these over older films at the same rating level.
 
-Here are their top-rated films (rated 3.5/5 or higher):
+Here are their films:
 
 {film_list}
 
