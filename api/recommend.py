@@ -1,6 +1,7 @@
 import json
 import os
 import re
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta
 from http.server import BaseHTTPRequestHandler
 
@@ -15,8 +16,14 @@ def get_rated_films(username, max_films=150):
     user = User(username)
     cutoff = (datetime.now() - timedelta(days=RECENT_CUTOFF_DAYS)).strftime("%Y-%m-%d")
 
-    # 1. Get diary entries (have dates)
-    diary = user.get_diary()
+    # Fetch diary and all films in parallel
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        diary_future = pool.submit(user.get_diary)
+        films_future = pool.submit(user.get_films)
+        diary = diary_future.result()
+        all_films = films_future.result()
+
+    # 1. Process diary entries (have dates)
     diary_slugs = {}
     for log_id, entry in diary.get("entries", {}).items():
         rating = entry.get("actions", {}).get("rating")
@@ -33,8 +40,7 @@ def get_rated_films(username, max_films=150):
                 "recent": date_str >= cutoff,
             }
 
-    # 2. Get all films (no dates) — only include 4.5+ that aren't already in diary
-    all_films = user.get_films()
+    # 2. Process all films (no dates) — only include 4.5+ that aren't already in diary
     non_diary = {}
     for slug, film in all_films.get("movies", {}).items():
         rating = film.get("rating")
