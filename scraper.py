@@ -32,6 +32,7 @@ FROM_EMAIL = os.environ.get("FROM_EMAIL", "onboarding@resend.dev")
 RECIPIENT_EMAILS = [
     e.strip() for e in os.environ.get("RECIPIENT_EMAILS", "").split(",") if e.strip()
 ]
+RATING_THRESHOLD = float(os.environ.get("RATING_THRESHOLD", "3.8"))
 DAYS_AHEAD = int(os.environ.get("DAYS_AHEAD", "7"))
 CITY_ID = os.environ.get("CITY_ID", "10969")  # NYC
 
@@ -273,15 +274,15 @@ def enrich_with_ratings(films: list[dict]) -> tuple[list[dict], list[dict]]:
             cache[key] = lb if lb else {}
             time.sleep(0.5)
 
-        if lb and lb.get("rating"):
+        if lb and lb.get("rating") and lb["rating"] >= RATING_THRESHOLD:
             film["lb_rating"] = lb["rating"]
             film["lb_url"] = lb["url"]
             film["lb_slug"] = lb["slug"]
             rated.append(film)
+        elif lb and lb.get("rating"):
+            print(f"    Below threshold: {title} ({lb['rating']:.1f})")
         else:
-            if key in cache and not cache[key]:
-                pass  # already logged on first lookup
-            else:
+            if key not in cache or cache[key]:
                 print(f"    No rating found for {title}")
             unrated.append(film)
 
@@ -337,11 +338,23 @@ def build_email_html(rated: list[dict], unrated: list[dict], date_range: str) ->
                 "showtimes": sts,
             })
 
+    # Rotating background colors for each day (dark, muted tones)
+    day_colors = [
+        "#1a1a2e",  # navy
+        "#1a2e1a",  # forest
+        "#2e1a1a",  # maroon
+        "#1a2e2e",  # teal
+        "#2e2e1a",  # olive
+        "#2e1a2e",  # plum
+        "#1a1a1a",  # charcoal
+    ]
+
     html_sections = []
-    for date_sort in sorted(day_films.keys()):
+    for day_idx, date_sort in enumerate(sorted(day_films.keys())):
         entries = day_films[date_sort]
         date_label = entries[0]["date_label"]
         entries.sort(key=lambda e: e["film"].get("lb_rating", 0), reverse=True)
+        bg = day_colors[day_idx % len(day_colors)]
 
         rows = []
         for entry in entries:
@@ -352,7 +365,7 @@ def build_email_html(rated: list[dict], unrated: list[dict], date_range: str) ->
 
             rows.append(f"""
             <tr>
-              <td style="padding:8px 0;border-bottom:1px solid #2a2a2a;">
+              <td style="padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.08);">
                 <div>
                   <a href="{film.get('lb_url', '#')}" style="color:#fff;text-decoration:none;font-weight:bold;">
                     {film['title']}</a>
@@ -365,13 +378,16 @@ def build_email_html(rated: list[dict], unrated: list[dict], date_range: str) ->
 
         html_sections.append(f"""
         <tr>
-          <td style="padding:16px 0 8px 0;">
+          <td style="background:{bg};padding:14px 12px 6px 12px;border-radius:8px 8px 0 0;">
             <h3 style="margin:0;color:#00e054;font-size:15px;text-transform:uppercase;letter-spacing:1px;">
               {date_label}
             </h3>
           </td>
         </tr>
-        {''.join(rows)}""")
+        <tr><td style="background:{bg};border-radius:0 0 8px 8px;padding:0 0 8px 0;">
+          <table style="width:100%;border-collapse:collapse;">{''.join(rows)}</table>
+        </td></tr>
+        <tr><td style="height:12px;"></td></tr>""")
 
     # --- Unrated films: simple list at the bottom ---
     unrated_html = ""
@@ -379,18 +395,18 @@ def build_email_html(rated: list[dict], unrated: list[dict], date_range: str) ->
         unrated_rows = []
         for film in sorted(unrated, key=lambda f: f["title"]):
             director_str = film.get("director") or ""
-            # Collect all unique venues
-            venues = set()
-            for st in film["showtimes"]:
-                venues.add(st["venue"])
-            venue_str = ", ".join(sorted(venues))
+            # Collect unique dates and venues
+            dates = sorted(set(st["date"] for st in film["showtimes"]))
+            venues = sorted(set(st["venue"] for st in film["showtimes"]))
+            date_str = ", ".join(dates)
+            venue_str = ", ".join(venues)
 
             unrated_rows.append(f"""
             <tr>
               <td style="padding:6px 0;border-bottom:1px solid #2a2a2a;">
                 <span style="color:#ccc;font-weight:bold;">{film['title']}</span>
                 <span style="color:#999;font-size:13px;">
-                  {(' &middot; ' + director_str) if director_str else ''} &middot; {venue_str}
+                  {(' &middot; ' + director_str) if director_str else ''} &middot; {venue_str} &middot; {date_str}
                 </span>
               </td>
             </tr>""")

@@ -2,10 +2,10 @@ name: NYC Film Digest
 
 on:
   schedule:
-    # Sunday 11pm ET (Mon 4am UTC) — covers Mon–Sun
-    - cron: "0 4 * * 1"
-    # Thursday 11pm ET (Fri 4am UTC) — covers Fri–Thu
-    - cron: "0 4 * * 5"
+    # Sunday 6pm ET (11pm UTC) — covers Mon–Sun
+    - cron: "0 23 * * 0"
+    # Thursday 6pm ET (11pm UTC) — covers Fri–Thu
+    - cron: "0 23 * * 4"
   workflow_dispatch:
 
 permissions:
