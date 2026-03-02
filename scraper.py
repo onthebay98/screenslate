@@ -14,12 +14,9 @@ Runs twice weekly via GitHub Actions:
 import json
 import os
 import re
-import smtplib
 import time
 from collections import defaultdict
 from datetime import datetime, timedelta
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
 from html import unescape
 from pathlib import Path
 
@@ -30,8 +27,8 @@ from bs4 import BeautifulSoup
 # Configuration
 # ---------------------------------------------------------------------------
 
-GMAIL_ADDRESS = os.environ.get("GMAIL_ADDRESS")
-GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD")
+RESEND_API_KEY = os.environ.get("RESEND_API_KEY")
+FROM_EMAIL = os.environ.get("FROM_EMAIL", "onboarding@resend.dev")
 RECIPIENT_EMAILS = [
     e.strip() for e in os.environ.get("RECIPIENT_EMAILS", "").split(",") if e.strip()
 ]
@@ -428,24 +425,28 @@ def build_email_html(rated: list[dict], unrated: list[dict], date_range: str) ->
 
 
 def send_email(html_body: str, date_range: str) -> None:
-    """Send the digest email via Gmail SMTP to all recipients."""
-    if not all([GMAIL_ADDRESS, GMAIL_APP_PASSWORD, RECIPIENT_EMAILS]):
+    """Send the digest email via Resend API."""
+    if not all([RESEND_API_KEY, RECIPIENT_EMAILS]):
         print("Email credentials not configured. Printing HTML to stdout instead.")
         print(html_body)
         return
 
-    msg = MIMEMultipart("alternative")
-    msg["Subject"] = f"NYC Film Digest — {date_range}"
-    msg["From"] = GMAIL_ADDRESS
-    msg["To"] = ", ".join(RECIPIENT_EMAILS)
-    msg.attach(MIMEText(html_body, "html"))
+    resp = requests.post(
+        "https://api.resend.com/emails",
+        headers={"Authorization": f"Bearer {RESEND_API_KEY}"},
+        json={
+            "from": FROM_EMAIL,
+            "to": RECIPIENT_EMAILS,
+            "subject": f"NYC Film Digest — {date_range}",
+            "html": html_body,
+        },
+    )
 
-    with smtplib.SMTP("smtp.gmail.com", 587) as server:
-        server.starttls()
-        server.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
-        server.sendmail(GMAIL_ADDRESS, RECIPIENT_EMAILS, msg.as_string())
-
-    print(f"Email sent to {', '.join(RECIPIENT_EMAILS)}")
+    if resp.status_code == 200:
+        print(f"Email sent to {', '.join(RECIPIENT_EMAILS)}")
+    else:
+        print(f"Email failed ({resp.status_code}): {resp.text}")
+        resp.raise_for_status()
 
 
 # ---------------------------------------------------------------------------
