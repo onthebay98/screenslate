@@ -1,4 +1,5 @@
 {
+  "cleanUrls": true,
   "functions": {
     "api/recommend.py": {
       "maxDuration": 60
@@ -8,14 +9,6 @@
     }
   },
   "rewrites": [
-    {
-      "source": "/filmtobooks",
-      "destination": "/public/filmtobooks.html"
-    },
-    {
-      "source": "/bookstofilms",
-      "destination": "/public/bookstofilms.html"
-    },
     {
       "source": "/(.*)",
       "destination": "/public/$1"
