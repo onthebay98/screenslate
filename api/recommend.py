@@ -11,8 +11,8 @@ from letterboxdpy.user import User
 RECENT_CUTOFF_DAYS = 90
 
 
-def get_rated_films(username, max_films=150):
-    """Fetch rated films from diary (with dates) + all films (no dates), with priority sorting."""
+def get_rated_films(username, max_films=500):
+    """Fetch rated films (4.5+) from diary and all films, with priority sorting."""
     user = User(username)
     cutoff = (datetime.now() - timedelta(days=RECENT_CUTOFF_DAYS)).strftime("%Y-%m-%d")
 
@@ -23,12 +23,12 @@ def get_rated_films(username, max_films=150):
         diary = diary_future.result()
         all_films = films_future.result()
 
-    # 1. Process diary entries (have dates)
+    # 1. Process diary entries (have dates) — only 4.5+
     diary_slugs = {}
     for log_id, entry in diary.get("entries", {}).items():
         rating = entry.get("actions", {}).get("rating")
         slug = entry.get("slug", "")
-        if rating is not None and rating >= 3.5 and slug not in diary_slugs:
+        if rating is not None and rating >= 4.5 and slug not in diary_slugs:
             date = entry.get("date", {})
             date_str = f"{date.get('year', '')}-{date.get('month', 0):02d}-{date.get('day', 0):02d}"
             diary_slugs[slug] = {
@@ -40,7 +40,7 @@ def get_rated_films(username, max_films=150):
                 "recent": date_str >= cutoff,
             }
 
-    # 2. Process all films (no dates) — only include 4.5+ that aren't already in diary
+    # 2. Process all films (no dates) — only 4.5+ not already in diary
     non_diary = {}
     for slug, film in all_films.get("movies", {}).items():
         rating = film.get("rating")
@@ -54,7 +54,7 @@ def get_rated_films(username, max_films=150):
                 "recent": False,
             }
 
-    # 3. Priority sort: recent 5s > all 5s > recent 4.5s > all 4.5s > recent 4s > all 4s > ...
+    # 3. Priority sort: recent 5s > all 5s > recent 4.5s > all 4.5s
     combined = list(diary_slugs.values()) + list(non_diary.values())
     combined.sort(key=lambda f: (f["rating"], f["recent"]), reverse=True)
     return combined[:max_films]
