@@ -300,6 +300,153 @@ button[type="submit"]:disabled {
   color: #9ab;
 }
 
+/* Page nav */
+.page-nav {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.page-nav a {
+  color: #9ab;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  border: 1px solid #2c3440;
+  border-radius: 6px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.page-nav a:hover {
+  border-color: #456;
+  color: #fff;
+}
+
+/* Landing page */
+.landing header {
+  margin-bottom: 48px;
+}
+
+.landing-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.landing-card {
+  display: block;
+  background: #1c2228;
+  border: 1px solid #2c3440;
+  border-radius: 10px;
+  padding: 28px 24px;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.1s;
+}
+
+.landing-card:hover {
+  border-color: #00e054;
+  transform: translateY(-2px);
+}
+
+.landing-card h2 {
+  color: #fff;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.landing-card p {
+  color: #9ab;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Film cards (Books → Films) */
+.film-card {
+  background: #1c2228;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 16px;
+  border: 1px solid #2c3440;
+  transition: border-color 0.2s;
+}
+
+.film-card:hover {
+  border-color: #456;
+}
+
+.film-card.top-pick {
+  border-color: #d4a843;
+  background: #1e2530;
+}
+
+.film-card.top-pick:hover {
+  border-color: #e8bf5a;
+}
+
+.film-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.film-title a {
+  color: #40bcf4;
+  text-decoration: none;
+}
+
+.film-title a:hover {
+  color: #fff;
+}
+
+.film-card.top-pick .film-title a {
+  color: #e8bf5a;
+}
+
+.film-card.top-pick .film-title a:hover {
+  color: #fff;
+}
+
+.film-meta {
+  color: #9ab;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.film-description {
+  color: #d8d8d8;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.related-books {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.book-tag {
+  background: #2c3440;
+  color: #9ab;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* Input hint */
+.input-hint {
+  color: #678;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: -4px;
+}
+
+.input-hint strong {
+  color: #9ab;
+}
+
 /* Mobile */
 @media (max-width: 480px) {
   .container {

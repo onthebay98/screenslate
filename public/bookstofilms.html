@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books to Films</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="page-nav">
+      <a href="/filmtobooks">Film &rarr; Books</a>
+    </nav>
+
+    <header>
+      <h1>Books &rarr; Films</h1>
+      <p class="subtitle">Get film recommendations based on your Goodreads taste</p>
+    </header>
+
+    <div id="input-section">
+      <form id="form">
+        <div class="input-group">
+          <input
+            type="text"
+            id="user-id"
+            placeholder="goodreads user ID or profile URL"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+            required
+          >
+        </div>
+        <p class="input-hint">Find your ID in your Goodreads profile URL: goodreads.com/user/show/<strong>12345</strong></p>
+        <button type="submit" id="submit-btn">Get Recommendations</button>
+      </form>
+    </div>
+
+    <div id="loading-section" class="hidden">
+      <div class="spinner"></div>
+      <p id="loading-message">Fetching your books...</p>
+    </div>
+
+    <div id="results-section" class="hidden">
+      <p id="summary" class="summary"></p>
+      <div id="films"></div>
+      <button id="reset-btn" class="reset-btn">Try another user</button>
+    </div>
+
+    <div id="error-section" class="hidden">
+      <p id="error-message" class="error-message"></p>
+      <button id="error-reset-btn" class="reset-btn">Try again</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    Made by Bay Hodge
+    <span class="footer-links">
+      <a href="https://github.com/onthebay98" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/bayhodge/" target="_blank" rel="noopener">LinkedIn</a>
+    </span>
+  </footer>
+
+  <script src="/books-app.js"></script>
+</body>
+</html>

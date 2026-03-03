@@ -3,48 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Film to Books</title>
+  <title>Film &harr; Books</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <div class="container">
+  <div class="container landing">
     <header>
-      <h1>Film &rarr; Books</h1>
-      <p class="subtitle">Get book recommendations based on your Letterboxd taste</p>
+      <h1>Film &harr; Books</h1>
+      <p class="subtitle">AI-powered recommendations between your two favorite worlds</p>
     </header>
 
-    <div id="input-section">
-      <form id="form">
-        <div class="input-group">
-          <span class="at-sign">@</span>
-          <input
-            type="text"
-            id="username"
-            placeholder="letterboxd username"
-            autocomplete="off"
-            autocapitalize="off"
-            spellcheck="false"
-            required
-          >
-        </div>
-        <button type="submit" id="submit-btn">Get Recommendations</button>
-      </form>
-    </div>
-
-    <div id="loading-section" class="hidden">
-      <div class="spinner"></div>
-      <p id="loading-message">Fetching your films...</p>
-    </div>
-
-    <div id="results-section" class="hidden">
-      <p id="summary" class="summary"></p>
-      <div id="books"></div>
-      <button id="reset-btn" class="reset-btn">Try another username</button>
-    </div>
-
-    <div id="error-section" class="hidden">
-      <p id="error-message" class="error-message"></p>
-      <button id="error-reset-btn" class="reset-btn">Try again</button>
+    <div class="landing-options">
+      <a href="/filmtobooks" class="landing-card">
+        <h2>Film &rarr; Books</h2>
+        <p>Enter your Letterboxd username and get book recommendations based on your film taste</p>
+      </a>
+      <a href="/bookstofilms" class="landing-card">
+        <h2>Books &rarr; Films</h2>
+        <p>Enter your Goodreads user ID and get film recommendations based on your reading taste</p>
+      </a>
     </div>
   </div>
 
@@ -55,7 +32,5 @@
       <a href="https://www.linkedin.com/in/bayhodge/" target="_blank" rel="noopener">LinkedIn</a>
     </span>
   </footer>
-
-  <script src="/app.js"></script>
 </body>
 </html>
