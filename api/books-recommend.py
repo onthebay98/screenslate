@@ -26,7 +26,7 @@ def parse_user_id(raw_input):
 def fetch_books(user_id):
     """Fetch books from Goodreads RSS feed and parse XML."""
     url = GOODREADS_RSS_URL.format(user_id=user_id)
-    resp = requests.get(url, timeout=15)
+    resp = requests.get(url, timeout=15, headers={"User-Agent": "Mozilla/5.0 (compatible)"})
 
     if resp.status_code == 404:
         raise ValueError("User not found")
