@@ -1,4 +1,4 @@
 requests
 beautifulsoup4
-letterboxdpy
+letterboxdpy>=6.5.0
 anthropic

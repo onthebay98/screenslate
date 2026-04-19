@@ -32,7 +32,7 @@ FROM_EMAIL = os.environ.get("FROM_EMAIL", "onboarding@resend.dev")
 RECIPIENT_EMAILS = [
     e.strip() for e in os.environ.get("RECIPIENT_EMAILS", "").split(",") if e.strip()
 ]
-RATING_THRESHOLD = float(os.environ.get("RATING_THRESHOLD", "3.8"))
+RATING_THRESHOLD = float(os.environ.get("RATING_THRESHOLD", "0"))
 DAYS_AHEAD = int(os.environ.get("DAYS_AHEAD", "7"))
 CITY_ID = os.environ.get("CITY_ID", "10969")  # NYC
 
@@ -202,7 +202,7 @@ def lookup_letterboxd(title: str, year: int | None) -> dict | None:
     query = f"{title} {year}" if year else title
     try:
         search = Search(query, "films")
-        results = search.get_results(max=5)
+        results = search.get_results(num_results=5)
         if not results.get("available"):
             return None
 
@@ -210,7 +210,7 @@ def lookup_letterboxd(title: str, year: int | None) -> dict | None:
         for r in results["results"]:
             if r.get("type") != "film":
                 continue
-            r_name = r.get("name", "").lower()
+            r_name = r.get("title", r.get("name", "")).lower()
             r_year = r.get("year")
 
             if year and r_year == year and r_name == title.lower():
@@ -264,26 +264,23 @@ def enrich_with_ratings(films: list[dict]) -> tuple[list[dict], list[dict]]:
         title = film["title"]
         key = title.lower()
 
-        if key in cache:
+        if key in cache and cache[key] and cache[key].get("rating"):
             lb = cache[key]
             cache_hits += 1
         else:
             print(f"  Looking up: {title} ({film.get('year', '?')})")
             lb = lookup_letterboxd(title, film.get("year"))
-            # Store result in cache (None becomes empty dict for JSON)
-            cache[key] = lb if lb else {}
+            if lb and lb.get("rating"):
+                cache[key] = lb
             time.sleep(0.5)
 
-        if lb and lb.get("rating") and lb["rating"] >= RATING_THRESHOLD:
+        if lb and lb.get("rating"):
             film["lb_rating"] = lb["rating"]
             film["lb_url"] = lb["url"]
             film["lb_slug"] = lb["slug"]
             rated.append(film)
-        elif lb and lb.get("rating"):
-            print(f"    Below threshold: {title} ({lb['rating']:.1f})")
         else:
-            if key not in cache or cache[key]:
-                print(f"    No rating found for {title}")
+            print(f"    No rating found for {title}")
             unrated.append(film)
 
     save_cache(cache)
