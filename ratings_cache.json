@@ -1,5 +1,9 @@
 {
-  "100 sunset": {},
+  "100 sunset": {
+    "rating": 3.28,
+    "slug": "100-sunset",
+    "url": "https://letterboxd.com/film/100-sunset/"
+  },
   "12 years a slave": {},
   "1991\n\n|  who gets to fly\n\n|  come dance with me\n\n|  we want a beautiful life\n\n|  what you will have seen\n\n|  existence and plurality\n\n|  why some people be mad at me sometimes\n\n|  xxxxxxx\n\n|  eautopsie": {},
   "19th century georgian chronicle": {
@@ -14,7 +18,11 @@
   },
   "8 1/2": {},
   "8 times\n\n|  [sniff]\n\n|  rap world day\n\n|  this is home\n\n|  lespri\n\n|  pi\u00f1ata prayers": {},
-  "9 to 5": {},
+  "9 to 5": {
+    "rating": 3.87,
+    "slug": "nine-to-five",
+    "url": "https://letterboxd.com/film/nine-to-five/"
+  },
   "<---> (back and forth)": {},
   "a bay of blood": {},
   "a body to live in": {
@@ -113,13 +121,21 @@
     "slug": "all-about-my-mother",
     "url": "https://letterboxd.com/film/all-about-my-mother/"
   },
-  "all is lost": {},
+  "all is lost": {
+    "rating": 3.55,
+    "slug": "all-is-lost",
+    "url": "https://letterboxd.com/film/all-is-lost/"
+  },
   "all that's left of you": {
     "rating": 4.18,
     "slug": "all-thats-left-of-you",
     "url": "https://letterboxd.com/film/all-thats-left-of-you/"
   },
-  "all the mornings of the world": {},
+  "all the mornings of the world": {
+    "rating": 3.83,
+    "slug": "all-the-mornings-of-the-world",
+    "url": "https://letterboxd.com/film/all-the-mornings-of-the-world/"
+  },
   "allegro non troppo": {
     "rating": 3.82,
     "slug": "allegro-non-troppo",
@@ -153,7 +169,11 @@
     "url": "https://letterboxd.com/film/american-dendrite/"
   },
   "american movie": {},
-  "american psycho": {},
+  "american psycho": {
+    "rating": 3.77,
+    "slug": "american-psycho",
+    "url": "https://letterboxd.com/film/american-psycho/"
+  },
   "am\u00edlcar": {
     "rating": null,
     "slug": "amilcar",
@@ -165,7 +185,11 @@
     "url": "https://letterboxd.com/film/an-american-werewolf-in-london/"
   },
   "anatomy of a fall": {},
-  "anatomy of a murder": {},
+  "anatomy of a murder": {
+    "rating": 4.24,
+    "slug": "anatomy-of-a-murder",
+    "url": "https://letterboxd.com/film/anatomy-of-a-murder/"
+  },
   "and the roots of rhythm remain": {},
   "andr\u00e9 is an idiot": {
     "rating": 3.9,
@@ -185,8 +209,16 @@
   },
   "annie": {},
   "anti star tina aumont\n\n|  home video: new york": {},
-  "apex": {},
-  "arcana": {},
+  "apex": {
+    "rating": 3.3,
+    "slug": "apex-2026",
+    "url": "https://letterboxd.com/film/apex-2026/"
+  },
+  "arcana": {
+    "rating": 3.38,
+    "slug": "arcana",
+    "url": "https://letterboxd.com/film/arcana/"
+  },
   "arnaud desplechin presents shoah": {},
   "aro berria": {},
   "art boy\n\n|  our friend just died\n\n|  little people\n\n|  my soul is a cage on the outside of my body\n\n|  beautiful room in vibrant and cultural neighborhood \u2014 available immediately": {},
@@ -210,8 +242,16 @@
   "audience\n\n|  love, barbara\n\n|  untitled (dyketactics revisited)\n\n|  carolee, barbara, and gunvor\n\n|  a video letter to barbara hammer\n\n|  a month of single frames": {},
   "bad santa: director's cut": {},
   "ballistic": {},
-  "bambi": {},
-  "barbarella": {},
+  "bambi": {
+    "rating": 3.55,
+    "slug": "bambi",
+    "url": "https://letterboxd.com/film/bambi/"
+  },
+  "barbarella": {
+    "rating": 3.25,
+    "slug": "barbarella",
+    "url": "https://letterboxd.com/film/barbarella/"
+  },
   "barry lyndon": {},
   "barton fink": {},
   "battle royale": {
@@ -289,7 +329,11 @@
     "url": "https://letterboxd.com/film/blue-fire/"
   },
   "blue heron": {},
-  "blue velvet": {},
+  "blue velvet": {
+    "rating": 4.06,
+    "slug": "blue-velvet",
+    "url": "https://letterboxd.com/film/blue-velvet/"
+  },
   "book of shadows: blair witch 2": {},
   "bountiful summer": {},
   "boyfriends and girlfriends": {},
@@ -360,21 +404,37 @@
     "slug": "larissa-the-other-side-of-anitta",
     "url": "https://letterboxd.com/film/larissa-the-other-side-of-anitta/"
   },
-  "carousel": {},
+  "carousel": {
+    "rating": 2.94,
+    "slug": "carousel-2026",
+    "url": "https://letterboxd.com/film/carousel-2026/"
+  },
   "carrie": {
     "rating": 3.84,
     "slug": "carrie-1976",
     "url": "https://letterboxd.com/film/carrie-1976/"
   },
   "casa musgal\n\n|  l\u00f3matj\u00f6rn\n\n|  \u2600\u2605\u2708\u2190\u2192\n\n|  minevissam (i am writing)\n\n|  goodbye for now\n\n|  bxl 4ever": {},
-  "casablanca": {},
+  "casablanca": {
+    "rating": 4.28,
+    "slug": "casablanca",
+    "url": "https://letterboxd.com/film/casablanca/"
+  },
   "case 137": {
     "rating": 3.5,
     "slug": "case-137-2025",
     "url": "https://letterboxd.com/film/case-137-2025/"
   },
-  "cast away": {},
-  "castle in the sky": {},
+  "cast away": {
+    "rating": 3.89,
+    "slug": "cast-away",
+    "url": "https://letterboxd.com/film/cast-away/"
+  },
+  "castle in the sky": {
+    "rating": 4.08,
+    "slug": "castle-in-the-sky",
+    "url": "https://letterboxd.com/film/castle-in-the-sky/"
+  },
   "cats": {},
   "caught in the acts": {},
   "cecil b. demented": {},
@@ -388,8 +448,16 @@
   "change my mind": {},
   "charles burns: 100% noir": {},
   "children of captain africa": {},
-  "china 9, liberty 37": {},
-  "chinatown": {},
+  "china 9, liberty 37": {
+    "rating": 3.61,
+    "slug": "china-9-liberty-37",
+    "url": "https://letterboxd.com/film/china-9-liberty-37/"
+  },
+  "chinatown": {
+    "rating": 4.3,
+    "slug": "chinatown",
+    "url": "https://letterboxd.com/film/chinatown/"
+  },
   "chinese portrait": {
     "rating": 3.54,
     "slug": "chinese-portrait",
@@ -432,7 +500,11 @@
     "slug": "come-see-me-in-the-good-light",
     "url": "https://letterboxd.com/film/come-see-me-in-the-good-light/"
   },
-  "coming home": {},
+  "coming home": {
+    "rating": 3.77,
+    "slug": "coming-home",
+    "url": "https://letterboxd.com/film/coming-home/"
+  },
   "coming to america": {},
   "comrades: almost a love story": {
     "rating": 4.2,
@@ -467,7 +539,11 @@
   },
   "crocodile dose": {},
   "crocodile dundee ii": {},
-  "crooklyn": {},
+  "crooklyn": {
+    "rating": 3.92,
+    "slug": "crooklyn",
+    "url": "https://letterboxd.com/film/crooklyn/"
+  },
   "cruising": {
     "rating": 3.59,
     "slug": "cruising",
@@ -506,7 +582,11 @@
     "slug": "dance-freak",
     "url": "https://letterboxd.com/film/dance-freak/"
   },
-  "dangerous seductress": {},
+  "dangerous seductress": {
+    "rating": 3.23,
+    "slug": "dangerous-seductress",
+    "url": "https://letterboxd.com/film/dangerous-seductress/"
+  },
   "daria kashcheeva shorts program": {},
   "darjeeling limited": {
     "rating": 3.85,
@@ -545,8 +625,16 @@
     "slug": "dead-pigs",
     "url": "https://letterboxd.com/film/dead-pigs/"
   },
-  "dear jassi": {},
-  "decision to leave": {},
+  "dear jassi": {
+    "rating": 3.47,
+    "slug": "dear-jassi",
+    "url": "https://letterboxd.com/film/dear-jassi/"
+  },
+  "decision to leave": {
+    "rating": 3.98,
+    "slug": "decision-to-leave",
+    "url": "https://letterboxd.com/film/decision-to-leave/"
+  },
   "defectors": {
     "rating": null,
     "slug": "defectors",
@@ -555,7 +643,11 @@
   "dekalog 1: i am the lord thy god\n\n|  dekalog 2: thou shalt not take the name of thy lord god in vain\n\n|  dekalog 3: honor the sabbath day\n\n|  dekalog 4: honor thy father and thy mother": {},
   "dekalog 5: thou shalt not kill\n\n|  dekalog 6: thou shalt not commit adultery\n\n|  dekalog 7: thou shalt not steal": {},
   "dekalog 8: thou shalt not bear false witness\n\n|  dekalog 9: thou shalt not covet thy neighbor's wife\n\n|  dekalog 10: thou shalt not covet thy neighbor's goods": {},
-  "deliverance": {},
+  "deliverance": {
+    "rating": 3.86,
+    "slug": "deliverance",
+    "url": "https://letterboxd.com/film/deliverance/"
+  },
   "demonic scandal": {},
   "demonlover": {
     "rating": 3.55,
@@ -641,7 +733,11 @@
     "slug": "drag-me-to-hell",
     "url": "https://letterboxd.com/film/drag-me-to-hell/"
   },
-  "dreams": {},
+  "dreams": {
+    "rating": 2.68,
+    "slug": "dreams-2025",
+    "url": "https://letterboxd.com/film/dreams-2025/"
+  },
   "dreams in nightmares": {},
   "drowned land": {},
   "dry leaf": {
@@ -649,7 +745,11 @@
     "slug": "dry-leaf",
     "url": "https://letterboxd.com/film/dry-leaf/"
   },
-  "duet for cannibals": {},
+  "duet for cannibals": {
+    "rating": 3.4,
+    "slug": "duet-for-cannibals",
+    "url": "https://letterboxd.com/film/duet-for-cannibals/"
+  },
   "eastern promises": {},
   "ed wood": {
     "rating": 4.03,
@@ -693,7 +793,11 @@
   },
   "eternal you": {},
   "eve's bayou": {},
-  "everyone is lying to you for money": {},
+  "everyone is lying to you for money": {
+    "rating": 3.58,
+    "slug": "everyone-is-lying-to-you-for-money",
+    "url": "https://letterboxd.com/film/everyone-is-lying-to-you-for-money/"
+  },
   "excalibur": {
     "rating": 3.74,
     "slug": "excalibur",
@@ -709,7 +813,11 @@
     "slug": "f-for-fake",
     "url": "https://letterboxd.com/film/f-for-fake/"
   },
-  "f.t.a.": {},
+  "f.t.a.": {
+    "rating": 3.58,
+    "slug": "fta",
+    "url": "https://letterboxd.com/film/fta/"
+  },
   "faces places": {
     "rating": 4.15,
     "slug": "faces-places",
@@ -736,7 +844,11 @@
     "slug": "fantasia",
     "url": "https://letterboxd.com/film/fantasia/"
   },
-  "fantastic planet": {},
+  "fantastic planet": {
+    "rating": 4.02,
+    "slug": "fantastic-planet",
+    "url": "https://letterboxd.com/film/fantastic-planet/"
+  },
   "fantastic voyage": {
     "rating": 3.41,
     "slug": "fantastic-voyage",
@@ -763,8 +875,16 @@
     "slug": "faust-1926",
     "url": "https://letterboxd.com/film/faust-1926/"
   },
-  "fear and loathing in las vegas": {},
-  "fellini's casanova": {},
+  "fear and loathing in las vegas": {
+    "rating": 3.77,
+    "slug": "fear-and-loathing-in-las-vegas",
+    "url": "https://letterboxd.com/film/fear-and-loathing-in-las-vegas/"
+  },
+  "fellini's casanova": {
+    "rating": 3.63,
+    "slug": "fellinis-casanova",
+    "url": "https://letterboxd.com/film/fellinis-casanova/"
+  },
   "female prisoner 701: scorpion": {
     "rating": 3.9,
     "slug": "female-prisoner-701-scorpion",
@@ -776,7 +896,11 @@
     "slug": "female-prisoner-scorpion-jailhouse-41",
     "url": "https://letterboxd.com/film/female-prisoner-scorpion-jailhouse-41/"
   },
-  "ferngully: the last rainforest": {},
+  "ferngully: the last rainforest": {
+    "rating": 3.31,
+    "slug": "ferngully-the-last-rainforest",
+    "url": "https://letterboxd.com/film/ferngully-the-last-rainforest/"
+  },
   "fight club": {},
   "film no. 12: heaven and earth magic": {},
   "final fantasy: the spirits within": {},
@@ -881,7 +1005,11 @@
     "url": "https://letterboxd.com/film/gosford-park/"
   },
   "gowanus current": {},
-  "graduate first": {},
+  "graduate first": {
+    "rating": 3.68,
+    "slug": "graduate-first",
+    "url": "https://letterboxd.com/film/graduate-first/"
+  },
   "greed": {},
   "guess who is calling?": {},
   "guru, the mad monk": {
@@ -911,7 +1039,11 @@
     "slug": "high-life-2018",
     "url": "https://letterboxd.com/film/high-life-2018/"
   },
-  "hokum": {},
+  "hokum": {
+    "rating": 3.59,
+    "slug": "hokum",
+    "url": "https://letterboxd.com/film/hokum/"
+  },
   "hollywood or bust": {
     "rating": 3.32,
     "slug": "hollywood-or-bust",
@@ -930,7 +1062,11 @@
   "homemade gatorade\n\n|  machines in flames": {},
   "horangi\n\n|  how should i film deer?\n\n|  midnight service\n\n|  chica gringa uruguaya\n\n|  born secret\n\n|  for stela": {},
   "horse feathers": {},
-  "hot water": {},
+  "hot water": {
+    "rating": 3.55,
+    "slug": "hot-water-2026",
+    "url": "https://letterboxd.com/film/hot-water-2026/"
+  },
   "hour of the cigarette\n\n|  compositron\n\n|  have a safe trip\n\n|  keeping the cold out in a cool way\n\n|  memoji therapy episode 1\n\n|  my karma is complicated \n\n|  mask girls dream\n\n|  targeted in heaven \n\n|  persian ripples in time \n\n|  ghetto metal\n\n|  graveyard shift\n\n|  ma\u010dka\n\n|  at land\n\n|  astrolabe of god": {},
   "house": {
     "rating": 3.99,
@@ -986,8 +1122,16 @@
   "ideas of order": {},
   "if on a winter's night": {},
   "imaginary zoo\n\n|  amusement park of beijing": {},
-  "immortals": {},
-  "in a glass cage": {},
+  "immortals": {
+    "rating": 2.64,
+    "slug": "immortals",
+    "url": "https://letterboxd.com/film/immortals/"
+  },
+  "in a glass cage": {
+    "rating": 3.64,
+    "slug": "in-a-glass-cage",
+    "url": "https://letterboxd.com/film/in-a-glass-cage/"
+  },
   "in a lonely place": {
     "rating": 4.2,
     "slug": "in-a-lonely-place",
@@ -1089,7 +1233,16 @@
     "slug": "judex-1963",
     "url": "https://letterboxd.com/film/judex-1963/"
   },
-  "julia": {},
+  "julia": {
+    "rating": 3.44,
+    "slug": "julia",
+    "url": "https://letterboxd.com/film/julia/"
+  },
+  "kamikaze hearts": {
+    "rating": 3.71,
+    "slug": "kamikaze-hearts",
+    "url": "https://letterboxd.com/film/kamikaze-hearts/"
+  },
   "keep your right up / soigne ta droite": {},
   "ken jacobs's lower east side: a tribute": {},
   "kika": {},
@@ -1125,7 +1278,11 @@
   "krabi 2562\n\n|  the ambassador": {},
   "kung-fu master!": {},
   "kyuka before summer's end": {},
-  "l'enfance nue": {},
+  "l'enfance nue": {
+    "rating": 3.91,
+    "slug": "naked-childhood",
+    "url": "https://letterboxd.com/film/naked-childhood/"
+  },
   "la maison des bois, eps. 1\u20133": {},
   "la maison des bois, eps. 4\u20137": {},
   "la notte": {},
@@ -1150,7 +1307,11 @@
     "slug": "lady-snowblood",
     "url": "https://letterboxd.com/film/lady-snowblood/"
   },
-  "landscape in the mist": {},
+  "landscape in the mist": {
+    "rating": 4.36,
+    "slug": "landscape-in-the-mist",
+    "url": "https://letterboxd.com/film/landscape-in-the-mist/"
+  },
   "las madres: the mothers of plaza de mayo": {
     "rating": 3.69,
     "slug": "the-mothers-of-plaza-de-mayo",
@@ -1193,7 +1354,11 @@
   },
   "les cr\u00e9atures (the creatures)": {},
   "les fant\u00f4mes du hard 2\n\n|  please hold": {},
-  "les hautes solitudes": {},
+  "les hautes solitudes": {
+    "rating": 3.79,
+    "slug": "les-hautes-solitudes",
+    "url": "https://letterboxd.com/film/les-hautes-solitudes/"
+  },
   "let the sunshine in": {
     "rating": 3.25,
     "slug": "let-the-sunshine-in",
@@ -1250,7 +1415,11 @@
     "slug": "made-in-hong-kong",
     "url": "https://letterboxd.com/film/made-in-hong-kong/"
   },
-  "made in u.s.a.": {},
+  "made in u.s.a.": {
+    "rating": 3.3,
+    "slug": "made-in-usa",
+    "url": "https://letterboxd.com/film/made-in-usa/"
+  },
   "madonna: truth or dare": {
     "rating": 3.77,
     "slug": "madonna-truth-or-dare",
@@ -1274,7 +1443,11 @@
     "slug": "malcolm-x-1992",
     "url": "https://letterboxd.com/film/malcolm-x-1992/"
   },
-  "man with a movie camera": {},
+  "man with a movie camera": {
+    "rating": 4.27,
+    "slug": "man-with-a-movie-camera",
+    "url": "https://letterboxd.com/film/man-with-a-movie-camera/"
+  },
   "maps to the stars": {
     "rating": 3.31,
     "slug": "maps-to-the-stars",
@@ -1311,7 +1484,11 @@
     "slug": "mauvais-sang",
     "url": "https://letterboxd.com/film/mauvais-sang/"
   },
-  "meek's cutoff": {},
+  "meek's cutoff": {
+    "rating": 3.72,
+    "slug": "meeks-cutoff",
+    "url": "https://letterboxd.com/film/meeks-cutoff/"
+  },
   "melancholia": {
     "rating": 3.84,
     "slug": "melancholia",
@@ -1335,30 +1512,50 @@
     "slug": "meteors-2025-1",
     "url": "https://letterboxd.com/film/meteors-2025-1/"
   },
-  "miami vice": {},
+  "miami vice": {
+    "rating": 3.45,
+    "slug": "miami-vice",
+    "url": "https://letterboxd.com/film/miami-vice/"
+  },
   "michael clayton": {},
   "microcosmos": {},
-  "midnight cowboy": {},
+  "midnight cowboy": {
+    "rating": 4.15,
+    "slug": "midnight-cowboy",
+    "url": "https://letterboxd.com/film/midnight-cowboy/"
+  },
   "midnight run": {},
   "mikey and nicky": {
     "rating": 4.07,
     "slug": "mikey-and-nicky",
     "url": "https://letterboxd.com/film/mikey-and-nicky/"
   },
-  "millennium actress": {},
+  "millennium actress": {
+    "rating": 4.23,
+    "slug": "millennium-actress",
+    "url": "https://letterboxd.com/film/millennium-actress/"
+  },
   "millennium mambo": {
     "rating": 3.83,
     "slug": "millennium-mambo",
     "url": "https://letterboxd.com/film/millennium-mambo/"
   },
-  "miraculous world: new york, united heroez": {},
+  "miraculous world: new york, united heroez": {
+    "rating": 3.37,
+    "slug": "miraculous-world-new-york-united-heroez",
+    "url": "https://letterboxd.com/film/miraculous-world-new-york-united-heroez/"
+  },
   "miriam: home delivery": {
     "rating": null,
     "slug": "miriam-home-delivery",
     "url": "https://letterboxd.com/film/miriam-home-delivery/"
   },
   "miroirs no. 3": {},
-  "mirror mirror": {},
+  "mirror mirror": {
+    "rating": 2.95,
+    "slug": "mirror-mirror-2012",
+    "url": "https://letterboxd.com/film/mirror-mirror-2012/"
+  },
   "misery": {
     "rating": 3.99,
     "slug": "misery",
@@ -1403,7 +1600,11 @@
     "slug": "morichales",
     "url": "https://letterboxd.com/film/morichales/"
   },
-  "morte cucina": {},
+  "morte cucina": {
+    "rating": 3.16,
+    "slug": "morte-cucina",
+    "url": "https://letterboxd.com/film/morte-cucina/"
+  },
   "mother of snow cranes": {
     "rating": null,
     "slug": "mother-of-snow-cranes",
@@ -1477,7 +1678,11 @@
   },
   "next life": {},
   "niagra": {},
-  "nickelodeon": {},
+  "nickelodeon": {
+    "rating": 3.33,
+    "slug": "nickelodeon",
+    "url": "https://letterboxd.com/film/nickelodeon/"
+  },
   "night of the creeps": {
     "rating": 3.5,
     "slug": "night-of-the-creeps",
@@ -1538,7 +1743,11 @@
     "slug": "omar",
     "url": "https://letterboxd.com/film/omar/"
   },
-  "on golden pond": {},
+  "on golden pond": {
+    "rating": 3.72,
+    "slug": "on-golden-pond",
+    "url": "https://letterboxd.com/film/on-golden-pond/"
+  },
   "on what continent is the country amnesia?\n\n|  flattening billionaires is my passion!\n\n|  dextra_1\n\n|  the boy was found unharmed\n\n|  object permanence\n\n|  like a tongue knows the mouth": {},
   "once upon a night\n\n|  a priceless head": {},
   "once upon a time... in hollywood": {
@@ -1546,13 +1755,21 @@
     "slug": "once-upon-a-time-in-hollywood",
     "url": "https://letterboxd.com/film/once-upon-a-time-in-hollywood/"
   },
-  "one hour with you": {},
+  "one hour with you": {
+    "rating": 3.52,
+    "slug": "one-hour-with-you",
+    "url": "https://letterboxd.com/film/one-hour-with-you/"
+  },
   "one hundred and one nights": {
     "rating": 3.77,
     "slug": "one-hundred-and-one-nights",
     "url": "https://letterboxd.com/film/one-hundred-and-one-nights/"
   },
-  "one in a million": {},
+  "one in a million": {
+    "rating": 3.66,
+    "slug": "one-in-a-million-2026",
+    "url": "https://letterboxd.com/film/one-in-a-million-2026/"
+  },
   "one sings, the other doesn't": {
     "rating": 4.14,
     "slug": "one-sings-the-other-doesnt",
@@ -1586,7 +1803,11 @@
     "url": "https://letterboxd.com/film/paris-texas/"
   },
   "partner\n\n|  jakob il reale e sosia il vero": {},
-  "pauline at the beach": {},
+  "pauline at the beach": {
+    "rating": 3.84,
+    "slug": "pauline-at-the-beach",
+    "url": "https://letterboxd.com/film/pauline-at-the-beach/"
+  },
   "peacemaker": {
     "rating": 3.75,
     "slug": "peacemaker-2025",
@@ -1651,7 +1872,11 @@
     "url": "https://letterboxd.com/film/powwow-people/"
   },
   "predator": {},
-  "present.perfect.": {},
+  "present.perfect.": {
+    "rating": 3.39,
+    "slug": "presentperfect",
+    "url": "https://letterboxd.com/film/presentperfect/"
+  },
   "pretty ugly: the story of the lunachicks": {},
   "projection": {
     "rating": null,
@@ -1686,7 +1911,11 @@
     "slug": "pyjama-girls",
     "url": "https://letterboxd.com/film/pyjama-girls/"
   },
-  "queen kelly": {},
+  "queen kelly": {
+    "rating": 3.59,
+    "slug": "queen-kelly",
+    "url": "https://letterboxd.com/film/queen-kelly/"
+  },
   "queen of katwe": {
     "rating": 3.64,
     "slug": "queen-of-katwe",
@@ -1750,9 +1979,13 @@
     "slug": "resurrection-of-eve",
     "url": "https://letterboxd.com/film/resurrection-of-eve/"
   },
-  "reunion": {},
+  "reunion": {
+    "rating": 3.55,
+    "slug": "reunion",
+    "url": "https://letterboxd.com/film/reunion/"
+  },
   "revelations of divine love": {
-    "rating": null,
+    "rating": 3.35,
     "slug": "revelations-of-divine-love",
     "url": "https://letterboxd.com/film/revelations-of-divine-love/"
   },
@@ -1762,7 +1995,11 @@
     "slug": "richard-iii-1986",
     "url": "https://letterboxd.com/film/richard-iii-1986/"
   },
-  "richie rich": {},
+  "richie rich": {
+    "rating": 2.73,
+    "slug": "rihie-rih",
+    "url": "https://letterboxd.com/film/rihie-rih/"
+  },
   "riding in cars with boys": {
     "rating": 3.49,
     "slug": "riding-in-cars-with-boys",
@@ -1776,7 +2013,11 @@
   "river's edge": {},
   "robert wilson and the civil wars": {},
   "roberto baggio\n\n|  bosnian war movie\n\n|  alienation in the time of eschatology\n\n|  to be eighteen (the war)\n\n|  closure\n\n|  qirim\n\n|  about the pain of others\n\n|  junior tu pap\u00e1": {},
-  "rocco and his brothers": {},
+  "rocco and his brothers": {
+    "rating": 4.32,
+    "slug": "rocco-and-his-brothers",
+    "url": "https://letterboxd.com/film/rocco-and-his-brothers/"
+  },
   "rosemary's baby": {
     "rating": 4.21,
     "slug": "rosemarys-baby",
@@ -1892,7 +2133,11 @@
     "slug": "smorgasbord",
     "url": "https://letterboxd.com/film/smorgasbord/"
   },
-  "sneakers": {},
+  "sneakers": {
+    "rating": 3.56,
+    "slug": "sneakers",
+    "url": "https://letterboxd.com/film/sneakers/"
+  },
   "snow white and the seven dwarfs": {
     "rating": 3.42,
     "slug": "snow-white-and-the-seven-dwarfs",
@@ -1910,7 +2155,11 @@
     "slug": "sole-survivor-1984",
     "url": "https://letterboxd.com/film/sole-survivor-1984/"
   },
-  "soleil \u00f4": {},
+  "soleil \u00f4": {
+    "rating": 4.05,
+    "slug": "soleil-o",
+    "url": "https://letterboxd.com/film/soleil-o/"
+  },
   "solomon northup's odyssey": {},
   "some eternal postcards\n\n|  dragking highway\n\n|  the roadtrip\n\n|  half halt\n\n|  odyssey\n\n|  family video 2024\n\n|  watch with the weary ones\n\n|  thank you, stillman\n\n|  the interior frontier": {},
   "some like it hot": {
@@ -2032,7 +2281,11 @@
     "slug": "super-mario-bros",
     "url": "https://letterboxd.com/film/super-mario-bros/"
   },
-  "superheroes: a never-ending battle": {},
+  "superheroes: a never-ending battle": {
+    "rating": 3.67,
+    "slug": "superheroes-a-never-ending-battle",
+    "url": "https://letterboxd.com/film/superheroes-a-never-ending-battle/"
+  },
   "suspiria": {
     "rating": 3.92,
     "slug": "suspiria",
@@ -2065,6 +2318,11 @@
     "url": "https://letterboxd.com/film/teddy-out-of-tune/"
   },
   "teenage mutant ninja turtles": {},
+  "tetsuo: the iron man": {
+    "rating": 3.87,
+    "slug": "tetsuo-the-iron-man",
+    "url": "https://letterboxd.com/film/tetsuo-the-iron-man/"
+  },
   "that old dream that moves": {},
   "the #7 train: an immigrant journey\n\n|  down in shadowland": {},
   "the 10th district court \u2014 moments of trials": {},
@@ -2106,7 +2364,11 @@
     "url": "https://letterboxd.com/film/the-bellboy/"
   },
   "the bend in the river": {},
-  "the big lebowski": {},
+  "the big lebowski": {
+    "rating": 4.11,
+    "slug": "the-big-lebowski",
+    "url": "https://letterboxd.com/film/the-big-lebowski/"
+  },
   "the bigamist": {
     "rating": 3.52,
     "slug": "the-bigamist",
@@ -2143,8 +2405,16 @@
     "slug": "the-celebration",
     "url": "https://letterboxd.com/film/the-celebration/"
   },
-  "the cell": {},
-  "the china syndrome": {},
+  "the cell": {
+    "rating": 3.28,
+    "slug": "the-cell",
+    "url": "https://letterboxd.com/film/the-cell/"
+  },
+  "the china syndrome": {
+    "rating": 3.79,
+    "slug": "the-china-syndrome",
+    "url": "https://letterboxd.com/film/the-china-syndrome/"
+  },
   "the christophers": {},
   "the competition": {
     "rating": 3.52,
@@ -2163,14 +2433,22 @@
     "slug": "the-descent",
     "url": "https://letterboxd.com/film/the-descent/"
   },
-  "the double life of veronique": {},
+  "the double life of veronique": {
+    "rating": 4.1,
+    "slug": "the-double-life-of-veronique",
+    "url": "https://letterboxd.com/film/the-double-life-of-veronique/"
+  },
   "the earrings of madame de\u2026": {
     "rating": 4.08,
     "slug": "the-earrings-of-madame-de",
     "url": "https://letterboxd.com/film/the-earrings-of-madame-de/"
   },
   "the ecstasy girls": {},
-  "the eleventh year": {},
+  "the eleventh year": {
+    "rating": 3.65,
+    "slug": "the-eleventh-year",
+    "url": "https://letterboxd.com/film/the-eleventh-year/"
+  },
   "the emperor and the assassin": {},
   "the english patient": {
     "rating": 3.62,
@@ -2236,7 +2514,11 @@
     "slug": "the-gleaners-and-i-two-years-later",
     "url": "https://letterboxd.com/film/the-gleaners-and-i-two-years-later/"
   },
-  "the gold rush": {},
+  "the gold rush": {
+    "rating": 4.15,
+    "slug": "the-gold-rush",
+    "url": "https://letterboxd.com/film/the-gold-rush/"
+  },
   "the good traitor": {
     "rating": 3.22,
     "slug": "the-good-traitor",
@@ -2276,12 +2558,28 @@
     "slug": "the-holy-girl",
     "url": "https://letterboxd.com/film/the-holy-girl/"
   },
-  "the holy mountain": {},
-  "the hot rock": {},
-  "the hour of liberation has arrived": {},
+  "the holy mountain": {
+    "rating": 4.13,
+    "slug": "the-holy-mountain",
+    "url": "https://letterboxd.com/film/the-holy-mountain/"
+  },
+  "the hot rock": {
+    "rating": 3.63,
+    "slug": "the-hot-rock",
+    "url": "https://letterboxd.com/film/the-hot-rock/"
+  },
+  "the hour of liberation has arrived": {
+    "rating": 4.16,
+    "slug": "the-hour-of-liberation-has-arrived",
+    "url": "https://letterboxd.com/film/the-hour-of-liberation-has-arrived/"
+  },
   "the house on trubnaya": {},
   "the howl": {},
-  "the image": {},
+  "the image": {
+    "rating": 3.36,
+    "slug": "the-image-1975",
+    "url": "https://letterboxd.com/film/the-image-1975/"
+  },
   "the informant!": {},
   "the invasion\n\n|  paleontology lesson": {},
   "the iron giant": {},
@@ -2323,7 +2621,11 @@
     "slug": "the-little-sister-2025",
     "url": "https://letterboxd.com/film/the-little-sister-2025/"
   },
-  "the long goodbye": {},
+  "the long goodbye": {
+    "rating": 4.19,
+    "slug": "the-long-goodbye",
+    "url": "https://letterboxd.com/film/the-long-goodbye/"
+  },
   "the love parade": {},
   "the love suicides at sonezaki": {
     "rating": 3.42,
@@ -2360,7 +2662,11 @@
     "slug": "the-man-who-shot-liberty-valance",
     "url": "https://letterboxd.com/film/the-man-who-shot-liberty-valance/"
   },
-  "the mansion of madness": {},
+  "the mansion of madness": {
+    "rating": 2.98,
+    "slug": "the-mansion-of-madness",
+    "url": "https://letterboxd.com/film/the-mansion-of-madness/"
+  },
   "the masque of the red death": {
     "rating": 3.63,
     "slug": "the-masque-of-the-red-death",
@@ -2384,7 +2690,11 @@
     "slug": "the-money-maker-2025",
     "url": "https://letterboxd.com/film/the-money-maker-2025/"
   },
-  "the most dangerous game": {},
+  "the most dangerous game": {
+    "rating": 3.42,
+    "slug": "the-most-dangerous-game",
+    "url": "https://letterboxd.com/film/the-most-dangerous-game/"
+  },
   "the most terrible time in my life": {
     "rating": 3.81,
     "slug": "the-most-terrible-time-in-my-life",
@@ -2479,7 +2789,11 @@
   "the red balloon\n\n|  white mane": {},
   "the red horse animation\n\n|  the b. beaver animation\n\n|  sister suzie cinema": {},
   "the red turtle": {},
-  "the revenant": {},
+  "the revenant": {
+    "rating": 3.91,
+    "slug": "the-revenant-2015",
+    "url": "https://letterboxd.com/film/the-revenant-2015/"
+  },
   "the revolt of the toys\n\n|  inspiration\n\n|  romance\n\n|  dimensions of dialogue\n\n|  a ballad about green wood\n\n|  reci reci reci": {},
   "the revolution will not be televised": {
     "rating": 4.07,
@@ -2492,6 +2806,16 @@
     "url": "https://letterboxd.com/film/the-rib-of-the-greater-bay-area/"
   },
   "the river train": {},
+  "the river wild": {
+    "rating": 3.34,
+    "slug": "the-river-wild",
+    "url": "https://letterboxd.com/film/the-river-wild/"
+  },
+  "the rookie": {
+    "rating": 2.87,
+    "slug": "the-rookie",
+    "url": "https://letterboxd.com/film/the-rookie/"
+  },
   "the royal tenenbaums": {
     "rating": 4.11,
     "slug": "the-royal-tenenbaums",
@@ -2513,7 +2837,11 @@
     "slug": "the-same-river-twice",
     "url": "https://letterboxd.com/film/the-same-river-twice/"
   },
-  "the scar": {},
+  "the scar": {
+    "rating": 3.37,
+    "slug": "the-scar",
+    "url": "https://letterboxd.com/film/the-scar/"
+  },
   "the search": {
     "rating": null,
     "slug": "the-search-1980",
@@ -2531,7 +2859,11 @@
     "url": "https://letterboxd.com/film/the-secret-agent-2025/"
   },
   "the secret life of pets": {},
-  "the seduction of mimi": {},
+  "the seduction of mimi": {
+    "rating": 3.71,
+    "slug": "the-seduction-of-mimi",
+    "url": "https://letterboxd.com/film/the-seduction-of-mimi/"
+  },
   "the servant": {
     "rating": 4.14,
     "slug": "the-servant",
@@ -2547,8 +2879,16 @@
     "slug": "the-seventh-seal",
     "url": "https://letterboxd.com/film/the-seventh-seal/"
   },
-  "the shining": {},
-  "the shop around the corner": {},
+  "the shining": {
+    "rating": 4.22,
+    "slug": "the-shining",
+    "url": "https://letterboxd.com/film/the-shining/"
+  },
+  "the shop around the corner": {
+    "rating": 4.19,
+    "slug": "the-shop-around-the-corner",
+    "url": "https://letterboxd.com/film/the-shop-around-the-corner/"
+  },
   "the silence": {
     "rating": 4.01,
     "slug": "the-silence",
@@ -2684,7 +3024,11 @@
   },
   "thee whispering began\n\n|  psychic tv: dreams less sweet\n\n|  thee worm returns\n\n|  we kiss/starlit mire": {},
   "there's no reward": {},
-  "therese and isabelle": {},
+  "therese and isabelle": {
+    "rating": 3.32,
+    "slug": "therese-and-isabelle",
+    "url": "https://letterboxd.com/film/therese-and-isabelle/"
+  },
   "this closeness": {},
   "this one goes out to the dance\n\n|  palimpsest 1: now u see us\n\n|  the story of the cricket queen\n\n|  the house of doors\n\n|  spring rebirth at source du p\u00eacher\n\n|  the sleepwalker's song\n\n|  magic mountain\n\n|  eigengrau\n\n|  forever, in october\n\n|  my dog is dead and other griefffs\n\n|  apocalipsis\n\n|  snowy train": {},
   "thomas the impostor": {},
@@ -2706,13 +3050,21 @@
     "slug": "three-on-a-couch",
     "url": "https://letterboxd.com/film/three-on-a-couch/"
   },
-  "three songs about lenin": {},
+  "three songs about lenin": {
+    "rating": 3.57,
+    "slug": "three-songs-about-lenin",
+    "url": "https://letterboxd.com/film/three-songs-about-lenin/"
+  },
   "through the night": {
     "rating": 3.42,
     "slug": "through-the-night-2023",
     "url": "https://letterboxd.com/film/through-the-night-2023/"
   },
-  "throw down (\u67d4\u9053\u9f8d\u864e\u699c)": {},
+  "throw down (\u67d4\u9053\u9f8d\u864e\u699c)": {
+    "rating": 3.84,
+    "slug": "throw-down",
+    "url": "https://letterboxd.com/film/throw-down/"
+  },
   "th\u00e9r\u00e8se desqueyroux": {
     "rating": 3.61,
     "slug": "therese-1962",
@@ -2754,7 +3106,11 @@
   },
   "toledo, my father\n\n|  be mine sometime\n\n|  breath control\n\n|  mr. bound and gagged\n\n|  perchlorethylene [incomplete work-in-progress]": {},
   "tom, tom, the piper's son\n\n|  airshaft": {},
-  "torso": {},
+  "torso": {
+    "rating": 3.43,
+    "slug": "torso",
+    "url": "https://letterboxd.com/film/torso/"
+  },
   "touki bouki": {},
   "tout va bien": {
     "rating": 3.64,
@@ -2797,7 +3153,11 @@
     "slug": "two-prosecutors",
     "url": "https://letterboxd.com/film/two-prosecutors/"
   },
-  "two seasons, two strangers": {},
+  "two seasons, two strangers": {
+    "rating": 3.55,
+    "slug": "two-seasons-two-strangers",
+    "url": "https://letterboxd.com/film/two-seasons-two-strangers/"
+  },
   "two wrenching departures": {},
   "tycoon": {
     "rating": null,
@@ -2856,9 +3216,17 @@
   "veronika voss": {},
   "video 50\n\n|  deafman glance": {},
   "video bunt (at the new wal-mart across the street from the old wal-mart)\n\n|  rip van winkle\n\n|  springtime\n\n|  auto-autumnals\n\n|  nature mature\n\n|  history minor\n\n|  occupations\n\n|  we never sleep": {},
-  "viktor": {},
+  "viktor": {
+    "rating": 3.53,
+    "slug": "viktor-2024",
+    "url": "https://letterboxd.com/film/viktor-2024/"
+  },
   "vintage: families of value\n\n|  an untitled portrait": {},
-  "voyages en italie": {},
+  "voyages en italie": {
+    "rating": 3.54,
+    "slug": "voyages-en-italie",
+    "url": "https://letterboxd.com/film/voyages-en-italie/"
+  },
   "waiting for guffman": {
     "rating": 3.84,
     "slug": "waiting-for-guffman",
@@ -2958,11 +3326,20 @@
     "url": "https://letterboxd.com/film/youre-next/"
   },
   "young soul rebels": {},
+  "zi": {
+    "rating": 2.95,
+    "slug": "zi-2026",
+    "url": "https://letterboxd.com/film/zi-2026/"
+  },
   "zodiac": {
     "rating": 4.02,
     "slug": "zodiac",
     "url": "https://letterboxd.com/film/zodiac/"
   },
-  "\u00e0 nos amours": {},
+  "\u00e0 nos amours": {
+    "rating": 3.86,
+    "slug": "a-nos-amours",
+    "url": "https://letterboxd.com/film/a-nos-amours/"
+  },
   "\u00e8 piccerella": {}
 }
