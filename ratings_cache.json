@@ -30,6 +30,11 @@
     "slug": "a-body-to-live-in",
     "url": "https://letterboxd.com/film/a-body-to-live-in/"
   },
+  "a century in sound": {
+    "rating": 3.63,
+    "slug": "a-century-in-sound",
+    "url": "https://letterboxd.com/film/a-century-in-sound/"
+  },
   "a clockwork orange": {},
   "a date with shirley": {},
   "a life illuminated": {},
@@ -168,6 +173,11 @@
     "slug": "american-dendrite",
     "url": "https://letterboxd.com/film/american-dendrite/"
   },
+  "american dream": {
+    "rating": 3.99,
+    "slug": "american-dream",
+    "url": "https://letterboxd.com/film/american-dream/"
+  },
   "american movie": {},
   "american psycho": {
     "rating": 3.77,
@@ -276,6 +286,11 @@
     "url": "https://letterboxd.com/film/beijing-bicycle/"
   },
   "beirut on the bayou\n\n|  a thousand and one journeys: the arab americans": {},
+  "bellissima": {
+    "rating": 3.88,
+    "slug": "bellissima",
+    "url": "https://letterboxd.com/film/bellissima/"
+  },
   "berber": {},
   "berlin, symphony of a city\n\n|  sausalito": {},
   "bernstein's wall": {},
@@ -314,6 +329,11 @@
     "slug": "black-orpheus",
     "url": "https://letterboxd.com/film/black-orpheus/"
   },
+  "black zombie": {
+    "rating": 3.64,
+    "slug": "black-zombie",
+    "url": "https://letterboxd.com/film/black-zombie/"
+  },
   "bleat!\n\n|  taxi moto\n\n|  buckskin\n\n|  only angels\n\n|  sabura": {},
   "blind chance": {},
   "blind woman\u2019s curse": {},
@@ -351,6 +371,11 @@
   },
   "bringing up baby": {},
   "broadway express\n\n|  new yorkers": {},
+  "bucks harbor": {
+    "rating": 3.74,
+    "slug": "bucks-harbor",
+    "url": "https://letterboxd.com/film/bucks-harbor/"
+  },
   "bullitt": {
     "rating": 3.73,
     "slug": "bullitt",
@@ -469,6 +494,11 @@
     "rating": 3.59,
     "slug": "cinevardaphoto",
     "url": "https://letterboxd.com/film/cinevardaphoto/"
+  },
+  "citizen kane": {
+    "rating": 4.19,
+    "slug": "citizen-kane",
+    "url": "https://letterboxd.com/film/citizen-kane/"
   },
   "citizen science: a symphony of human power - episode 1: citibikes\n\n|  the map\n\n|  changing lanes": {},
   "close encounters of the third kind": {
@@ -784,6 +814,11 @@
     "slug": "enzo-2025",
     "url": "https://letterboxd.com/film/enzo-2025/"
   },
+  "eo": {
+    "rating": 3.57,
+    "slug": "eo",
+    "url": "https://letterboxd.com/film/eo/"
+  },
   "eraserhead": {},
   "erupcja": {},
   "eternal sunshine of the spotless mind": {
@@ -966,12 +1001,22 @@
     "slug": "game-changers-2024",
     "url": "https://letterboxd.com/film/game-changers-2024/"
   },
+  "gaza fights for freedom": {
+    "rating": 4.31,
+    "slug": "gaza-fights-for-freedom",
+    "url": "https://letterboxd.com/film/gaza-fights-for-freedom/"
+  },
   "gentlemen prefer blondes": {
     "rating": 3.86,
     "slug": "gentlemen-prefer-blondes",
     "url": "https://letterboxd.com/film/gentlemen-prefer-blondes/"
   },
   "gently down the stream\n\n|  the ties that bind\n\n|  from a to z": {},
+  "get over it": {
+    "rating": 2.88,
+    "slug": "get-over-it",
+    "url": "https://letterboxd.com/film/get-over-it/"
+  },
   "gh05+h4ck": {},
   "ghost dog: the way of the samurai": {},
   "ghost elephants": {},
@@ -1027,6 +1072,11 @@
     "rating": 3.05,
     "slug": "happy-feet",
     "url": "https://letterboxd.com/film/happy-feet/"
+  },
+  "harlan county usa": {
+    "rating": 4.35,
+    "slug": "harlan-county-usa",
+    "url": "https://letterboxd.com/film/harlan-county-usa/"
   },
   "harmonica": {},
   "harvest: 3,000 years": {},
@@ -1097,6 +1147,11 @@
     "url": "https://letterboxd.com/film/i-am-love/"
   },
   "i can see the moon, and sometimes i wonder\n\n|  it's only love\n\n|  no more than anyone else": {},
+  "i fell in love with a z-grade director in brooklyn": {
+    "rating": 3.45,
+    "slug": "i-fell-in-love-with-a-z-grade-director-in",
+    "url": "https://letterboxd.com/film/i-fell-in-love-with-a-z-grade-director-in/"
+  },
   "i for iran": {},
   "i have graduated": {},
   "i just can't go on": {
@@ -1222,6 +1277,11 @@
     "rating": 3.39,
     "slug": "john-lilly-and-the-earth-coincidence-control",
     "url": "https://letterboxd.com/film/john-lilly-and-the-earth-coincidence-control/"
+  },
+  "joybubbles": {
+    "rating": 3.56,
+    "slug": "joybubbles",
+    "url": "https://letterboxd.com/film/joybubbles/"
   },
   "ju dou": {
     "rating": 3.82,
@@ -1707,7 +1767,11 @@
     "slug": "no-other-choice-2025",
     "url": "https://letterboxd.com/film/no-other-choice-2025/"
   },
-  "no picnic": {},
+  "no picnic": {
+    "rating": 3.52,
+    "slug": "no-picnic",
+    "url": "https://letterboxd.com/film/no-picnic/"
+  },
   "no president": {},
   "noli me tangere\n\n|  las ma\u00f1anitas\n\n|  getting to know you again\n\n|  formosa\n\n|  true or real\n\n|  gu-neon / nine years\n\n|  always/never (together forever)\n\n|  from here\n\n|  whales": {},
   "nor any memories of the turning backs\n\n|  eurydice in the underworld\n\n|  milwaukee night and day\n\n|  between the sky and earth\n\n|  bozos on the bus\n\n|  rahhala: hayya ala hayya": {},
@@ -2101,6 +2165,11 @@
     "slug": "showgirls",
     "url": "https://letterboxd.com/film/showgirls/"
   },
+  "silent friend": {
+    "rating": 3.78,
+    "slug": "silent-friend",
+    "url": "https://letterboxd.com/film/silent-friend/"
+  },
   "silsila": {
     "rating": 3.36,
     "slug": "silsila",
@@ -2161,6 +2230,11 @@
     "url": "https://letterboxd.com/film/soleil-o/"
   },
   "solomon northup's odyssey": {},
+  "some came running": {
+    "rating": 3.8,
+    "slug": "some-came-running",
+    "url": "https://letterboxd.com/film/some-came-running/"
+  },
   "some eternal postcards\n\n|  dragking highway\n\n|  the roadtrip\n\n|  half halt\n\n|  odyssey\n\n|  family video 2024\n\n|  watch with the weary ones\n\n|  thank you, stillman\n\n|  the interior frontier": {},
   "some like it hot": {
     "rating": 4.27,
@@ -2720,6 +2794,11 @@
     "slug": "the-old-jockey",
     "url": "https://letterboxd.com/film/the-old-jockey/"
   },
+  "the oldest person in the world": {
+    "rating": 3.46,
+    "slug": "the-oldest-person-in-the-world",
+    "url": "https://letterboxd.com/film/the-oldest-person-in-the-world/"
+  },
   "the one": {},
   "the oracle": {
     "rating": null,
@@ -2907,6 +2986,11 @@
   },
   "the sound of music": {},
   "the sound of summer": {},
+  "the square": {
+    "rating": 3.94,
+    "slug": "the-square-2013",
+    "url": "https://letterboxd.com/film/the-square-2013/"
+  },
   "the story of qiu ju": {
     "rating": null,
     "slug": "when-football-changed-forever-the-story-of-the-1991-1992-football-division-one-season",
@@ -3071,6 +3155,11 @@
     "url": "https://letterboxd.com/film/therese-1962/"
   },
   "tiananmen": {},
+  "time and water": {
+    "rating": 3.62,
+    "slug": "time-and-water-2026",
+    "url": "https://letterboxd.com/film/time-and-water-2026/"
+  },
   "time indefinite": {
     "rating": 3.97,
     "slug": "time-indefinite",
@@ -3163,6 +3252,11 @@
     "rating": null,
     "slug": "tycoon-2026",
     "url": "https://letterboxd.com/film/tycoon-2026/"
+  },
+  "uncut gems": {
+    "rating": 3.95,
+    "slug": "uncut-gems",
+    "url": "https://letterboxd.com/film/uncut-gems/"
   },
   "under a shipwrecked moon": {
     "rating": null,
