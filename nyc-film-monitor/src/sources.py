@@ -22,10 +22,6 @@ class Venue:
 
 # fmt: off
 VENUES: list[Venue] = [
-    # Primary aggregator
-    Venue("Screen Slate", "screen_slate", [
-        "https://www.screenslate.com/screenings/new-york",
-    ]),
     # Venue-specific calendars
     Venue("Film Forum", "film_forum", [
         "https://filmforum.org/now_playing",
@@ -41,7 +37,7 @@ VENUES: list[Venue] = [
         "https://www.filmlinc.org/films/",
     ]),
     Venue("Museum of the Moving Image", "momi", [
-        "https://movingimage.us/calendar/",
+        "https://movingimage.us/programs/",
     ]),
     Venue("Anthology Film Archives", "anthology", [
         "https://anthologyfilmarchives.org/film_screenings/calendar",
@@ -50,7 +46,7 @@ VENUES: list[Venue] = [
         "https://www.paristheaternyc.com/",
     ]),
     Venue("Roxy Cinema", "roxy_cinema", [
-        "https://www.roxycinematribeca.com/calendar",
+        "https://www.roxycinemanewyork.com/calendar",
     ]),
     Venue("Quad Cinema", "quad_cinema", [
         "https://quadcinema.com/calendars/",
