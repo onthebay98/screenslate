@@ -11,7 +11,7 @@ import anthropic
 
 log = logging.getLogger(__name__)
 
-MODEL = "claude-sonnet-4-5-20250514"
+MODEL = "claude-3-5-sonnet-20241022"
 MAX_INPUT_CHARS = 80_000  # truncate page text to stay within token budget
 
 

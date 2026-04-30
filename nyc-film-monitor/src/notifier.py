@@ -44,7 +44,7 @@ def send_discord(webhook_url: str, message: str) -> None:
 
 def send_error(webhook_url: str, error_msg: str) -> None:
     """Send an error notification to Discord."""
-    msg = f"**Ford Monitor Error**\n{error_msg}"
+    msg = f"**Film Monitor Error**\n{error_msg}"
     try:
         send_discord(webhook_url, msg)
     except Exception as e:

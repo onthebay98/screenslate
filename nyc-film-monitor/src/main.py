@@ -1,4 +1,4 @@
-"""Ford NYC Screening Monitor — orchestration."""
+"""NYC Film Screening Monitor — orchestration."""
 
 from __future__ import annotations
 
@@ -109,7 +109,7 @@ def run(dry_run: bool = False, baseline: bool = False) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Ford NYC Screening Monitor")
+    parser = argparse.ArgumentParser(description="NYC Film Screening Monitor")
     parser.add_argument("--dry-run", action="store_true",
                         help="Print Discord payload instead of posting")
     parser.add_argument("--baseline", action="store_true",

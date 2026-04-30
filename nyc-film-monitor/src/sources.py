@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 
 log = logging.getLogger(__name__)
 
-USER_AGENT = "ford-nyc-monitor/1.0 (screening-alerts)"
+USER_AGENT = "nyc-film-monitor/1.0 (screening-alerts)"
 
 
 @dataclass
@@ -24,7 +24,7 @@ class Venue:
 VENUES: list[Venue] = [
     # Primary aggregator
     Venue("Screen Slate", "screen_slate", [
-        "https://www.screenslate.com/screenings",
+        "https://www.screenslate.com/screenings/new-york",
     ]),
     # Venue-specific calendars
     Venue("Film Forum", "film_forum", [
@@ -41,7 +41,7 @@ VENUES: list[Venue] = [
         "https://www.filmlinc.org/films/",
     ]),
     Venue("Museum of the Moving Image", "momi", [
-        "https://movingimage.org/calendar/",
+        "https://movingimage.us/calendar/",
     ]),
     Venue("Anthology Film Archives", "anthology", [
         "https://anthologyfilmarchives.org/film_screenings/calendar",
