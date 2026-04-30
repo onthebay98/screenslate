@@ -46,10 +46,10 @@ VENUES: list[Venue] = [
         "https://www.paristheaternyc.com/",
     ]),
     Venue("Roxy Cinema", "roxy_cinema", [
-        "https://www.roxycinemanewyork.com/calendar",
+        "https://www.roxycinemanewyork.com/",
     ]),
     Venue("Quad Cinema", "quad_cinema", [
-        "https://quadcinema.com/calendars/",
+        "https://quadcinema.com/calendar/",
     ]),
 ]
 # fmt: on
