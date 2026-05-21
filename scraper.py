@@ -7,8 +7,8 @@ each film with its Letterboxd rating, and emails a digest sorted by day
 then by rating (descending).
 
 Runs twice weekly via GitHub Actions:
-  - Sunday night: covers Mon–Sun
-  - Thursday night: covers Fri–Thu
+  - Sunday 8am ET: covers Mon–Sun
+  - Thursday 8am ET: covers Fri–Thu
 """
 
 import json
@@ -32,16 +32,46 @@ FROM_EMAIL = os.environ.get("FROM_EMAIL", "onboarding@resend.dev")
 RECIPIENT_EMAILS = [
     e.strip() for e in os.environ.get("RECIPIENT_EMAILS", "").split(",") if e.strip()
 ]
-RATING_THRESHOLD = float(os.environ.get("RATING_THRESHOLD", "0"))
+RATING_THRESHOLD = float(os.environ.get("RATING_THRESHOLD", "3.5"))
 DAYS_AHEAD = int(os.environ.get("DAYS_AHEAD", "7"))
 CITY_ID = os.environ.get("CITY_ID", "10969")  # NYC
 
+LATEST_SHOWTIME = os.environ.get("LATEST_SHOWTIME", "10:00pm")
 SCREENSLATE_BASE = "https://www.screenslate.com"
 CACHE_FILE = Path(__file__).parent / "ratings_cache.json"
 
 # ---------------------------------------------------------------------------
 # Screen Slate helpers
 # ---------------------------------------------------------------------------
+
+def is_late_showtime(time_str: str, cutoff_str: str) -> bool:
+    """Check if a showtime is at or after the cutoff (e.g. '10:00pm'). AM times before 6am count as late-night."""
+    for fmt in ("%I:%M%p", "%I:%M %p"):
+        try:
+            t = datetime.strptime(time_str.strip().lower(), fmt)
+            cutoff = datetime.strptime(cutoff_str.strip().lower(), fmt)
+            # Treat 12am-5:59am as late-night (after midnight)
+            if t.hour < 6:
+                return True
+            return t >= cutoff
+        except ValueError:
+            continue
+    return False
+
+
+def is_before_time(time_str: str, cutoff_str: str) -> bool:
+    """Check if a showtime is strictly before the cutoff (e.g. '5:00pm'). Late-night (12am-5:59am) is not 'before'."""
+    for fmt in ("%I:%M%p", "%I:%M %p"):
+        try:
+            t = datetime.strptime(time_str.strip().lower(), fmt)
+            cutoff = datetime.strptime(cutoff_str.strip().lower(), fmt)
+            if t.hour < 6:
+                return False
+            return t < cutoff
+        except ValueError:
+            continue
+    return False
+
 
 def strip_html(html_str: str) -> str:
     """Remove HTML tags and decode entities."""
@@ -172,6 +202,28 @@ def fetch_screenings(days_ahead: int = DAYS_AHEAD) -> list[dict]:
             "ticket_url": ticket_url,
         })
 
+    # Filter out showtimes at or after the cutoff
+    for media_id in list(films.keys()):
+        films[media_id]["showtimes"] = [
+            st for st in films[media_id]["showtimes"]
+            if not st["time"] or not is_late_showtime(st["time"], LATEST_SHOWTIME)
+        ]
+        if not films[media_id]["showtimes"]:
+            del films[media_id]
+
+    # Filter out weekday showtimes before 5pm
+    for media_id in list(films.keys()):
+        films[media_id]["showtimes"] = [
+            st for st in films[media_id]["showtimes"]
+            if not (
+                st["time"]
+                and datetime.strptime(st["date_sort"], "%Y%m%d").weekday() < 5
+                and is_before_time(st["time"], "5:00pm")
+            )
+        ]
+        if not films[media_id]["showtimes"]:
+            del films[media_id]
+
     return list(films.values())
 
 
@@ -275,10 +327,13 @@ def enrich_with_ratings(films: list[dict]) -> tuple[list[dict], list[dict]]:
             time.sleep(0.5)
 
         if lb and lb.get("rating"):
-            film["lb_rating"] = lb["rating"]
-            film["lb_url"] = lb["url"]
-            film["lb_slug"] = lb["slug"]
-            rated.append(film)
+            if lb["rating"] >= RATING_THRESHOLD:
+                film["lb_rating"] = lb["rating"]
+                film["lb_url"] = lb["url"]
+                film["lb_slug"] = lb["slug"]
+                rated.append(film)
+            else:
+                print(f"    Below threshold: {title} ({lb['rating']:.1f})")
         else:
             print(f"    No rating found for {title}")
             unrated.append(film)
