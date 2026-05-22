@@ -170,6 +170,11 @@
     "slug": "come-see-me-in-the-good-light",
     "url": "https://letterboxd.com/film/come-see-me-in-the-good-light/"
   },
+  "communion": {
+    "rating": 2.93,
+    "slug": "communion",
+    "url": "https://letterboxd.com/film/communion/"
+  },
   "compulsion": {
     "rating": 3.64,
     "slug": "compulsion",
@@ -318,6 +323,11 @@
   },
   "hank's saloon": {},
   "harmonica": {},
+  "house of wax": {
+    "rating": 2.98,
+    "slug": "house-of-wax-2005",
+    "url": "https://letterboxd.com/film/house-of-wax-2005/"
+  },
   "how to build a library": {
     "rating": 3.49,
     "slug": "how-to-build-a-library",
@@ -357,6 +367,11 @@
     "rating": 3.98,
     "slug": "it-was-just-an-accident",
     "url": "https://letterboxd.com/film/it-was-just-an-accident/"
+  },
+  "jeanne dielman, 23 quai de commerce, 1080 bruxelles": {
+    "rating": 4.26,
+    "slug": "jeanne-dielman-23-quai-du-commerce-1080-bruxelles",
+    "url": "https://letterboxd.com/film/jeanne-dielman-23-quai-du-commerce-1080-bruxelles/"
   },
   "klute": {
     "rating": 3.86,
