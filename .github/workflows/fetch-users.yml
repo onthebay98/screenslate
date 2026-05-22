@@ -20,24 +20,77 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt
-      - name: Debug structure
+      - name: Fetch user data
         run: |
           python3 - <<'PYEOF'
-          import json
+          import json, time, traceback
           from letterboxdpy.user import User
-          user = User("onthebay")
-          films = user.get_films()
-          # Print top-level keys
-          print("Top keys:", list(films.keys())[:5])
-          # Print first few movies entries
-          movies = films.get("movies", {})
-          for i, (k, v) in enumerate(movies.items()):
-              print(f"  key={k!r}, type={type(v).__name__}, value={v!r}")
-              if i >= 3:
-                  break
+
+          def fetch_user(username):
+              print(f"Fetching {username}...", flush=True)
+              user = User(username)
+
+              print(f"  Fetching diary...", flush=True)
+              diary = user.get_diary()
+              time.sleep(2)
+              print(f"  Fetching films...", flush=True)
+              all_films = user.get_films()
+
+              diary_entries = []
+              for log_id, entry in diary.get("entries", {}).items():
+                  if not isinstance(entry, dict):
+                      continue
+                  rating = entry.get("actions", {}).get("rating")
+                  date = entry.get("date", {})
+                  diary_entries.append({
+                      "name": entry.get("name"),
+                      "year": entry.get("release"),
+                      "slug": entry.get("slug", ""),
+                      "rating": rating,
+                      "review": entry.get("actions", {}).get("review", False),
+                      "date": f"{date.get('year', '')}-{date.get('month', 0):02d}-{date.get('day', 0):02d}" if date else None,
+                  })
+
+              rated_films = []
+              for slug, film in all_films.get("movies", {}).items():
+                  if not isinstance(film, dict):
+                      continue
+                  rating = film.get("rating")
+                  if rating is not None:
+                      rated_films.append({
+                          "name": film.get("name"),
+                          "year": film.get("year"),
+                          "slug": slug,
+                          "rating": rating,
+                      })
+
+              print(f"  {username}: {len(diary_entries)} diary, {len(rated_films)} rated", flush=True)
+              return {
+                  "username": username,
+                  "diary_count": len(diary_entries),
+                  "rated_count": len(rated_films),
+                  "diary": diary_entries,
+                  "rated_films": sorted(rated_films, key=lambda f: f["rating"], reverse=True),
+              }
+
+          usernames = [u.strip() for u in "${{ github.event.inputs.usernames }}".split(",")]
+          results = []
+          for u in usernames:
+              try:
+                  results.append(fetch_user(u))
+              except Exception:
+                  print(f"  ERROR for {u}:", flush=True)
+                  traceback.print_exc()
+                  results.append({"username": u, "error": traceback.format_exc()})
+              if u != usernames[-1]:
+                  time.sleep(3)
+
+          with open("user_data.json", "w") as f:
+              json.dump(results, f, indent=2)
+          print("Done!")
           PYEOF
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: letterboxd-debug
-          path: "*.json"
+          name: letterboxd-user-data
+          path: user_data.json
