@@ -19,16 +19,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install letterboxdpy
+      - run: pip install -r requirements.txt
       - name: Fetch user data
         run: |
           python3 - <<'PYEOF'
-          import json, time, sys
+          import json, time
           from concurrent.futures import ThreadPoolExecutor
           from letterboxdpy.user import User
 
           def fetch_user(username):
-              print(f"Fetching {username}...")
+              print(f"Fetching {username}...", flush=True)
               user = User(username)
               with ThreadPoolExecutor(max_workers=2) as pool:
                   diary_future = pool.submit(user.get_diary)
@@ -36,8 +36,16 @@ jobs:
                   diary = diary_future.result()
                   all_films = films_future.result()
 
+              # Debug: show structure
+              entries = diary.get("entries", {})
+              if entries:
+                  first_key = next(iter(entries))
+                  print(f"  diary entry type: {type(entries[first_key])}", flush=True)
+
               diary_entries = []
-              for log_id, entry in diary.get("entries", {}).items():
+              for log_id, entry in entries.items():
+                  if not isinstance(entry, dict):
+                      continue
                   rating = entry.get("actions", {}).get("rating")
                   date = entry.get("date", {})
                   diary_entries.append({
@@ -50,7 +58,14 @@ jobs:
                   })
 
               rated_films = []
-              for slug, film in all_films.get("movies", {}).items():
+              movies = all_films.get("movies", {})
+              if movies:
+                  first_key = next(iter(movies))
+                  print(f"  films entry type: {type(movies[first_key])}", flush=True)
+
+              for slug, film in movies.items():
+                  if not isinstance(film, dict):
+                      continue
                   rating = film.get("rating")
                   if rating is not None:
                       rated_films.append({
@@ -60,7 +75,7 @@ jobs:
                           "rating": rating,
                       })
 
-              print(f"  {username}: {len(diary_entries)} diary, {len(rated_films)} rated")
+              print(f"  {username}: {len(diary_entries)} diary, {len(rated_films)} rated", flush=True)
               return {
                   "username": username,
                   "diary_count": len(diary_entries),
