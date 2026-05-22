@@ -251,7 +251,10 @@ def lookup_letterboxd(title: str, year: int | None) -> dict | None:
     """
     from letterboxdpy.search import Search
 
-    query = f"{title} {year}" if year else title
+    # Truncate long titles (e.g. "Jeanne Dielman, 23 Quai de Commerce, 1080 Bruxelles")
+    # to improve search results — keep only the part before the first comma
+    search_title = title.split(",")[0].strip() if len(title) > 40 else title
+    query = f"{search_title} {year}" if year else search_title
     try:
         search = Search(query, "films")
         results = search.get_results(num_results=5)
