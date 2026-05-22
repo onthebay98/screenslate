@@ -26,39 +26,39 @@ jobs:
           import json, time, traceback
           from letterboxdpy.user import User
 
+          def parse_date(date_val):
+              """Handle both dict and string date formats from letterboxdpy."""
+              if isinstance(date_val, dict):
+                  return f"{date_val.get('year', '')}-{date_val.get('month', 0):02d}-{date_val.get('day', 0):02d}"
+              if isinstance(date_val, str):
+                  return date_val[:10]  # "2026-05-20T00:..." -> "2026-05-20"
+              return None
+
           def fetch_user(username):
               print(f"Fetching {username}...", flush=True)
               user = User(username)
 
               print(f"  Fetching diary...", flush=True)
               diary = user.get_diary()
-
-              # Debug diary structure
-              entries = diary.get("entries", {})
-              print(f"  Diary keys: {list(diary.keys())}", flush=True)
-              print(f"  Entries count: {len(entries)}", flush=True)
-              for i, (k, v) in enumerate(entries.items()):
-                  print(f"  entry key={k!r}, type={type(v).__name__}, value={repr(v)[:200]}", flush=True)
-                  if i >= 2:
-                      break
-
               time.sleep(2)
               print(f"  Fetching films...", flush=True)
               all_films = user.get_films()
 
               diary_entries = []
-              for log_id, entry in entries.items():
+              for log_id, entry in diary.get("entries", {}).items():
                   if not isinstance(entry, dict):
                       continue
-                  rating = entry.get("actions", {}).get("rating")
-                  date = entry.get("date", {})
+                  actions = entry.get("actions", {})
+                  if not isinstance(actions, dict):
+                      actions = {}
+                  rating = actions.get("rating")
                   diary_entries.append({
                       "name": entry.get("name"),
                       "year": entry.get("release"),
                       "slug": entry.get("slug", ""),
                       "rating": rating,
-                      "review": entry.get("actions", {}).get("review", False),
-                      "date": f"{date.get('year', '')}-{date.get('month', 0):02d}-{date.get('day', 0):02d}" if date else None,
+                      "review": actions.get("reviewed", False),
+                      "date": parse_date(entry.get("date")),
                   })
 
               rated_films = []
