@@ -32,12 +32,22 @@ jobs:
 
               print(f"  Fetching diary...", flush=True)
               diary = user.get_diary()
+
+              # Debug diary structure
+              entries = diary.get("entries", {})
+              print(f"  Diary keys: {list(diary.keys())}", flush=True)
+              print(f"  Entries count: {len(entries)}", flush=True)
+              for i, (k, v) in enumerate(entries.items()):
+                  print(f"  entry key={k!r}, type={type(v).__name__}, value={repr(v)[:200]}", flush=True)
+                  if i >= 2:
+                      break
+
               time.sleep(2)
               print(f"  Fetching films...", flush=True)
               all_films = user.get_films()
 
               diary_entries = []
-              for log_id, entry in diary.get("entries", {}).items():
+              for log_id, entry in entries.items():
                   if not isinstance(entry, dict):
                       continue
                   rating = entry.get("actions", {}).get("rating")
