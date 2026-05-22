@@ -258,6 +258,10 @@ def lookup_letterboxd(title: str, year: int | None) -> dict | None:
     try:
         search = Search(query, "films")
         results = search.get_results(num_results=5)
+        # Retry without year if no results (Screen Slate sometimes has wrong year)
+        if not results.get("available") and year:
+            search = Search(search_title, "films")
+            results = search.get_results(num_results=5)
         if not results.get("available"):
             return None
 
