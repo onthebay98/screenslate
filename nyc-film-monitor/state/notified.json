@@ -1,4 +1,40 @@
 {
   "version": 1,
-  "notified": []
+  "notified": [
+    {
+      "key": "museum_of_the_moving_image|the_grapes_of_wrath|2026-05-30",
+      "title": "The Grapes of Wrath",
+      "venue": "Museum of the Moving Image",
+      "date": "2026-05-30",
+      "first_seen": "2026-05-25T14:59:20.731765+00:00"
+    },
+    {
+      "key": "museum_of_the_moving_image|the_grapes_of_wrath|2026-05-31",
+      "title": "The Grapes of Wrath",
+      "venue": "Museum of the Moving Image",
+      "date": "2026-05-31",
+      "first_seen": "2026-05-25T14:59:20.731765+00:00"
+    },
+    {
+      "key": "museum_of_modern_art|straight_shooting|2026-06-06",
+      "title": "Straight Shooting",
+      "venue": "Museum of Modern Art",
+      "date": "2026-06-06",
+      "first_seen": "2026-05-25T14:59:20.731765+00:00"
+    },
+    {
+      "key": "museum_of_modern_art|hell_bent|2026-06-06",
+      "title": "Hell Bent",
+      "venue": "Museum of Modern Art",
+      "date": "2026-06-06",
+      "first_seen": "2026-05-25T14:59:20.731765+00:00"
+    },
+    {
+      "key": "museum_of_the_moving_image|days_of_heaven|2026-06-07",
+      "title": "Days of Heaven",
+      "venue": "Museum of the Moving Image",
+      "date": "2026-06-07",
+      "first_seen": "2026-05-25T14:59:20.731765+00:00"
+    }
+  ]
 }
