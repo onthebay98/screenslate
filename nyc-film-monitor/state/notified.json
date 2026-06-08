@@ -42,6 +42,20 @@
       "venue": "Museum of the Moving Image",
       "date": "2026-06-13",
       "first_seen": "2026-06-01T16:00:12.296494+00:00"
+    },
+    {
+      "key": "museum_of_modern_art|hell_bent|2026-06-16",
+      "title": "Hell Bent",
+      "venue": "Museum of Modern Art",
+      "date": "2026-06-16",
+      "first_seen": "2026-06-08T15:04:37.506949+00:00"
+    },
+    {
+      "key": "museum_of_modern_art|straight_shooting|2026-06-16",
+      "title": "Straight Shooting",
+      "venue": "Museum of Modern Art",
+      "date": "2026-06-16",
+      "first_seen": "2026-06-08T15:04:37.506949+00:00"
     }
   ]
 }
