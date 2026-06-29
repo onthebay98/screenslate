@@ -56,6 +56,34 @@
       "venue": "Museum of Modern Art",
       "date": "2026-06-16",
       "first_seen": "2026-06-08T15:04:37.506949+00:00"
+    },
+    {
+      "key": "museum_of_modern_art|four_sons|2026-07-09",
+      "title": "Four Sons",
+      "venue": "Museum of Modern Art",
+      "date": "2026-07-09",
+      "first_seen": "2026-06-29T15:06:07.475220+00:00"
+    },
+    {
+      "key": "museum_of_modern_art|four_sons|2026-07-11",
+      "title": "Four Sons",
+      "venue": "Museum of Modern Art",
+      "date": "2026-07-11",
+      "first_seen": "2026-06-29T15:06:07.475220+00:00"
+    },
+    {
+      "key": "nitehawk_cinema_williamsburg|the_tree_of_life|2026-07-11",
+      "title": "The Tree of Life",
+      "venue": "Nitehawk Cinema Williamsburg",
+      "date": "2026-07-11",
+      "first_seen": "2026-06-29T15:06:07.475220+00:00"
+    },
+    {
+      "key": "nitehawk_cinema_williamsburg|the_tree_of_life|2026-07-12",
+      "title": "The Tree of Life",
+      "venue": "Nitehawk Cinema Williamsburg",
+      "date": "2026-07-12",
+      "first_seen": "2026-06-29T15:06:07.475220+00:00"
     }
   ]
 }
