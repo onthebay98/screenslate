@@ -84,6 +84,13 @@
       "venue": "Nitehawk Cinema Williamsburg",
       "date": "2026-07-12",
       "first_seen": "2026-06-29T15:06:07.475220+00:00"
+    },
+    {
+      "key": "museum_of_modern_art|3_bad_men|2026-08-03",
+      "title": "3 Bad Men",
+      "venue": "Museum of Modern Art",
+      "date": "2026-08-03",
+      "first_seen": "2026-07-27T16:06:12.174019+00:00"
     }
   ]
 }
