@@ -91,6 +91,27 @@
       "venue": "Museum of Modern Art",
       "date": "2026-08-03",
       "first_seen": "2026-07-27T16:06:12.174019+00:00"
+    },
+    {
+      "key": "paris_theater|the_tree_of_life|2026-09-17",
+      "title": "The Tree of Life",
+      "venue": "Paris Theater",
+      "date": "2026-09-17",
+      "first_seen": "2026-09-14T18:56:06.667507+00:00"
+    },
+    {
+      "key": "paris_theater|the_tree_of_life|2026-09-22",
+      "title": "The Tree of Life",
+      "venue": "Paris Theater",
+      "date": "2026-09-22",
+      "first_seen": "2026-09-14T18:56:06.667507+00:00"
+    },
+    {
+      "key": "paris_theater|the_tree_of_life|2026-09-25",
+      "title": "The Tree of Life",
+      "venue": "Paris Theater",
+      "date": "2026-09-25",
+      "first_seen": "2026-09-14T18:56:06.667507+00:00"
     }
   ]
 }
